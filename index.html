@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>ColourCopy Hub | Medical Book Printing & Pan-India Delivery | Jaipur</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet"/>
+<style>
+:root{--o:#FF6B35;--p:#FF3CAC;--c:#00C2E0;--dk:#1a1a2e;--tx:#2d2d2d;--mu:#6b6b6b;--lt:#fff8f5;--wh:#ffffff;--gr:linear-gradient(135deg,#FF6B35,#FF3CAC);--sh:0 8px 40px rgba(255,107,53,0.15);}
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Nunito',sans-serif;color:var(--tx);background:var(--wh);overflow-x:hidden;}
+h1,h2,h3,h4{font-family:'Poppins',sans-serif;}
+.page{display:none;}
+.page.active{display:block;animation:fi .35s ease;}
+@keyframes fi{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:translateY(0)}}
+nav{position:fixed;top:0;left:0;right:0;z-index:1000;background:rgba(255,255,255,0.96);backdrop-filter:blur(14px);border-bottom:1px solid rgba(255,107,53,0.1);padding:0 5%;}
+.ni{display:flex;align-items:center;justify-content:space-between;height:66px;}
+.logo{display:flex;align-items:center;gap:10px;cursor:pointer;}
+.li{width:36px;height:36px;border-radius:50%;background:var(--gr);display:flex;align-items:center;justify-content:center;}
+.li svg{width:20px;height:20px;}
+.ln{font-family:'Poppins',sans-serif;font-size:17px;font-weight:800;color:var(--dk);}
+.ln span{color:var(--o);}
+.nl{display:flex;align-items:center;gap:4px;}
+.nb{padding:8px 16px;border-radius:50px;font-size:14px;font-weight:600;color:var(--mu);cursor:pointer;border:none;background:none;font-family:'Nunito',sans-serif;transition:all .2s;}
+.nb:hover{color:var(--o);background:rgba(255,107,53,.08);}
+.nb.active{color:#fff;background:var(--gr);}
+.nw{padding:9px 20px;border-radius:50px;background:linear-gradient(135deg,#25D366,#128C7E);color:#fff;font-size:13px;font-weight:700;cursor:pointer;border:none;font-family:'Nunito',sans-serif;transition:all .2s;}
+.nw:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(37,211,102,.35);}
+.hm{display:none;flex-direction:column;gap:5px;cursor:pointer;}
+.hm span{display:block;width:24px;height:2.5px;background:var(--dk);border-radius:2px;}
+.mm{display:none;position:fixed;top:66px;left:0;right:0;background:#fff;padding:16px 5%;border-bottom:1px solid rgba(255,107,53,.1);z-index:999;flex-direction:column;gap:4px;}
+.mm.open{display:flex;}
+.ml{padding:12px 16px;border-radius:10px;font-size:15px;font-weight:600;color:var(--mu);cursor:pointer;border:none;background:none;font-family:'Nunito',sans-serif;text-align:left;transition:all .2s;}
+.ml:hover,.ml.active{color:var(--o);background:rgba(255,107,53,.08);}
+.hero{min-height:100vh;display:flex;align-items:center;padding:100px 5% 60px;position:relative;overflow:hidden;background:linear-gradient(150deg,#fff8f5 60%,#fff0fa 100%);}
+.hb{position:absolute;border-radius:50%;pointer-events:none;}
+.hc{position:relative;z-index:2;max-width:580px;}
+.badge{display:inline-flex;align-items:center;gap:8px;background:#fff;border:1.5px solid rgba(255,107,53,.2);border-radius:50px;padding:6px 16px;font-size:13px;font-weight:700;color:var(--o);margin-bottom:22px;box-shadow:0 2px 12px rgba(255,107,53,.1);}
+.hero h1{font-size:clamp(34px,4.5vw,58px);font-weight:900;line-height:1.1;color:var(--dk);margin-bottom:18px;}
+.hero h1 em{font-style:normal;background:var(--gr);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.hs{font-size:16px;color:var(--mu);line-height:1.75;margin-bottom:30px;max-width:480px;}
+.hbts{display:flex;gap:12px;flex-wrap:wrap;}
+.bg{display:inline-flex;align-items:center;gap:8px;padding:14px 26px;border-radius:50px;background:var(--gr);color:#fff;font-size:15px;font-weight:700;border:none;cursor:pointer;font-family:'Nunito',sans-serif;transition:all .2s;box-shadow:0 6px 24px rgba(255,107,53,.3);}
+.bg:hover{transform:translateY(-3px);box-shadow:0 10px 32px rgba(255,107,53,.4);}
+.bo{display:inline-flex;align-items:center;gap:8px;padding:13px 26px;border-radius:50px;background:#fff;color:var(--o);font-size:15px;font-weight:700;border:2px solid rgba(255,107,53,.3);cursor:pointer;font-family:'Nunito',sans-serif;transition:all .2s;}
+.bo:hover{border-color:var(--o);}
+.bw{display:inline-flex;align-items:center;gap:8px;padding:14px 26px;border-radius:50px;background:linear-gradient(135deg,#25D366,#128C7E);color:#fff;font-size:15px;font-weight:700;border:none;cursor:pointer;font-family:'Nunito',sans-serif;transition:all .2s;box-shadow:0 6px 24px rgba(37,211,102,.3);}
+.bw:hover{transform:translateY(-3px);}
+.hst{display:flex;gap:16px;margin-top:36px;flex-wrap:wrap;}
+.sb{background:#fff;border-radius:16px;padding:14px 20px;box-shadow:0 4px 20px rgba(0,0,0,.06);border:1px solid rgba(255,107,53,.08);}
+.sn{font-family:'Poppins',sans-serif;font-size:22px;font-weight:800;color:var(--o);}
+.sl{font-size:11px;color:var(--mu);font-weight:600;margin-top:2px;}
+.hsvg{position:absolute;right:4%;top:50%;transform:translateY(-50%);width:min(400px,42vw);}
+.strip{background:var(--gr);padding:16px 5%;display:flex;gap:28px;overflow-x:auto;justify-content:center;flex-wrap:wrap;}
+.si{display:flex;align-items:center;gap:8px;color:#fff;font-size:13px;font-weight:700;white-space:nowrap;}
+section{padding:72px 5%;}
+.st{display:inline-block;background:rgba(255,107,53,.1);color:var(--o);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:5px 14px;border-radius:50px;margin-bottom:10px;}
+.sh{font-size:clamp(24px,3vw,38px);font-weight:800;color:var(--dk);margin-bottom:10px;}
+.sh em{font-style:normal;background:var(--gr);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.ss{font-size:15px;color:var(--mu);line-height:1.7;max-width:520px;}
+.tc{text-align:center;}.tc .ss{margin:0 auto;}
+.g3{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px;margin-top:44px;}
+.card{background:#fff;border-radius:20px;padding:26px;border:1px solid rgba(255,107,53,.1);transition:all .3s;box-shadow:0 2px 14px rgba(0,0,0,.04);}
+.card:hover{transform:translateY(-6px);box-shadow:var(--sh);}
+.ci{width:48px;height:48px;border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px;margin-bottom:14px;}
+.card h3{font-size:16px;font-weight:700;color:var(--dk);margin-bottom:6px;}
+.card p{font-size:13px;color:var(--mu);line-height:1.65;}
+.g4{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;margin-top:44px;}
+.pc{background:#fff;border-radius:22px;padding:28px 24px;border:1.5px solid rgba(255,107,53,.12);transition:all .3s;position:relative;overflow:hidden;}
+.pc:hover{transform:translateY(-6px);box-shadow:var(--sh);}
+.pc.pop{border-color:var(--o);background:linear-gradient(160deg,#fff8f5,#fff4fb);}
+.pb{position:absolute;top:14px;right:14px;background:var(--gr);color:#fff;font-size:10px;font-weight:700;padding:3px 10px;border-radius:50px;}
+.pi{font-size:34px;margin-bottom:10px;}
+.pn{font-size:17px;font-weight:700;color:var(--dk);margin-bottom:4px;}
+.pd{font-size:12px;color:var(--mu);margin-bottom:16px;line-height:1.5;}
+.pp{font-family:'Poppins',sans-serif;font-size:34px;font-weight:900;color:var(--o);}
+.pp small{font-size:15px;font-weight:600;color:var(--mu);}
+.ppe{font-size:11px;color:var(--mu);margin-bottom:18px;}
+.pl{list-style:none;display:flex;flex-direction:column;gap:9px;}
+.pl li{display:flex;align-items:center;gap:7px;font-size:13px;color:var(--tx);}
+.pl li::before{content:'✓';color:var(--o);font-weight:700;}
+.pbtn{width:100%;margin-top:20px;padding:12px;border-radius:50px;font-size:14px;font-weight:700;cursor:pointer;border:none;font-family:'Nunito',sans-serif;transition:all .2s;}
+.pbo{background:#fff;color:var(--o);border:2px solid rgba(255,107,53,.25);}
+.pbo:hover{border-color:var(--o);}
+.pbf{background:var(--gr);color:#fff;box-shadow:0 4px 16px rgba(255,107,53,.28);}
+.pbf:hover{transform:translateY(-2px);}
+.gg{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:44px;}
+.gi{border-radius:16px;overflow:hidden;aspect-ratio:1;display:flex;flex-direction:column;align-items:center;justify-content:center;font-size:36px;cursor:pointer;transition:transform .3s;position:relative;}
+.gi:hover{transform:scale(1.04);}
+.gl{position:absolute;bottom:0;left:0;right:0;background:rgba(0,0,0,.48);color:#fff;font-size:11px;font-weight:700;padding:7px 10px;text-align:center;}
+.rg{display:grid;grid-template-columns:repeat(auto-fit,minmax(270px,1fr));gap:18px;margin-top:44px;}
+.rc{background:#fff;border-radius:18px;padding:22px;border:1px solid rgba(255,107,53,.1);box-shadow:0 2px 14px rgba(0,0,0,.04);}
+.rs{color:#FFD600;font-size:15px;margin-bottom:10px;}
+.rt{font-size:13px;color:var(--tx);line-height:1.7;margin-bottom:14px;font-style:italic;}
+.ra{display:flex;align-items:center;gap:10px;}
+.rav{width:36px;height:36px;border-radius:50%;background:var(--gr);display:flex;align-items:center;justify-content:center;color:#fff;font-size:13px;font-weight:700;flex-shrink:0;}
+.rn{font-size:13px;font-weight:700;color:var(--dk);}
+.rr{font-size:11px;color:var(--mu);}
+.dg{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;margin-top:44px;}
+.dc{background:#fff;border-radius:14px;padding:18px;text-align:center;border:1px solid rgba(255,107,53,.1);}
+.di{font-size:28px;margin-bottom:8px;}
+.dt{font-size:13px;font-weight:700;color:var(--dk);margin-bottom:3px;}
+.dd{font-size:12px;color:var(--mu);}
+.stt{display:flex;flex-wrap:wrap;gap:7px;justify-content:center;margin-top:28px;}
+.sp{background:#fff;border:1px solid rgba(255,107,53,.2);color:var(--o);font-size:11px;font-weight:600;padding:4px 12px;border-radius:50px;}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:0;margin-top:44px;}
+.step{text-align:center;padding:24px 20px;}
+.stnum{width:52px;height:52px;border-radius:50%;background:var(--gr);color:#fff;font-family:'Poppins',sans-serif;font-size:20px;font-weight:800;display:flex;align-items:center;justify-content:center;margin:0 auto 14px;}
+.step h3{font-size:15px;font-weight:700;color:var(--dk);margin-bottom:6px;}
+.step p{font-size:13px;color:var(--mu);line-height:1.6;}
+.cta{background:var(--gr);padding:64px 5%;text-align:center;color:#fff;}
+.cta h2{font-size:clamp(22px,3vw,36px);font-weight:800;margin-bottom:10px;}
+.cta p{font-size:15px;opacity:.9;margin-bottom:28px;}
+.bwh{display:inline-flex;align-items:center;gap:8px;padding:13px 28px;border-radius:50px;background:#fff;color:var(--o);font-size:15px;font-weight:700;border:none;cursor:pointer;font-family:'Nunito',sans-serif;transition:all .2s;margin:5px;}
+.bwh:hover{transform:translateY(-3px);box-shadow:0 10px 32px rgba(0,0,0,.12);}
+.pgh{background:linear-gradient(150deg,#fff8f5,#fff0fa);padding:120px 5% 60px;text-align:center;}
+.sdg{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:22px;margin-top:44px;}
+.sdc{background:#fff;border-radius:22px;padding:30px;border:1.5px solid rgba(255,107,53,.1);transition:all .3s;}
+.sdc:hover{transform:translateY(-6px);box-shadow:var(--sh);}
+.sdi{font-size:40px;margin-bottom:14px;}
+.sdt{font-size:19px;font-weight:700;color:var(--dk);margin-bottom:8px;}
+.sdd{font-size:13px;color:var(--mu);line-height:1.7;margin-bottom:18px;}
+.sdf{display:flex;flex-direction:column;gap:7px;}
+.sdf div{display:flex;align-items:center;gap:8px;font-size:13px;color:var(--tx);}
+.sdf div::before{content:'→';color:var(--o);font-weight:700;}
+.ag{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:center;padding:120px 5% 72px;}
+.av{border-radius:28px;background:var(--gr);aspect-ratio:1;display:flex;align-items:center;justify-content:center;font-size:90px;max-width:360px;}
+.vg{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:32px;}
+.val{background:var(--lt);border-radius:14px;padding:18px;}
+.vn{font-family:'Poppins',sans-serif;font-size:30px;font-weight:900;background:var(--gr);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;}
+.vt{font-size:14px;font-weight:700;color:var(--dk);margin-bottom:3px;}
+.vd{font-size:12px;color:var(--mu);line-height:1.55;}
+.cog{display:grid;grid-template-columns:1fr 1fr;gap:44px;padding:40px 0 0;}
+.cf{background:#fff;border-radius:22px;padding:32px;border:1px solid rgba(255,107,53,.1);box-shadow:0 4px 28px rgba(0,0,0,.05);}
+.fg{margin-bottom:18px;}
+.fl{display:block;font-size:13px;font-weight:700;color:var(--dk);margin-bottom:6px;}
+.fi{width:100%;padding:11px 14px;border-radius:10px;border:1.5px solid rgba(255,107,53,.15);font-size:14px;font-family:'Nunito',sans-serif;color:var(--tx);outline:none;transition:border-color .2s;background:var(--lt);}
+.fi:focus{border-color:var(--o);}
+textarea.fi{resize:vertical;min-height:110px;}
+.cis{display:flex;flex-direction:column;gap:16px;}
+.cic{background:#fff;border-radius:14px;padding:18px 20px;border:1px solid rgba(255,107,53,.1);display:flex;align-items:flex-start;gap:12px;}
+.cii{width:40px;height:40px;border-radius:10px;background:rgba(255,107,53,.1);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0;}
+.cit{font-size:12px;font-weight:700;color:var(--dk);margin-bottom:3px;}
+.civ{font-size:13px;color:var(--mu);line-height:1.5;}
+.wac{background:linear-gradient(135deg,#25D366,#128C7E);border-radius:18px;padding:24px;text-align:center;color:#fff;}
+.wac h3{font-size:18px;font-weight:700;margin-bottom:6px;}
+.wac p{font-size:13px;opacity:.9;margin-bottom:18px;}
+.bwaw{display:inline-flex;align-items:center;gap:8px;padding:12px 24px;border-radius:50px;background:#fff;color:#128C7E;font-size:14px;font-weight:700;cursor:pointer;border:none;font-family:'Nunito',sans-serif;margin:4px;transition:all .2s;}
+.bwaw:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(0,0,0,.12);}
+footer{background:var(--dk);color:#fff;padding:48px 5% 22px;}
+.fg2{display:grid;grid-template-columns:2fr 1fr 1fr;gap:36px;margin-bottom:36px;}
+.fbp{font-size:13px;color:rgba(255,255,255,.5);line-height:1.7;margin-top:10px;max-width:260px;}
+.ft{font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:rgba(255,255,255,.4);margin-bottom:14px;}
+.fls{display:flex;flex-direction:column;gap:10px;}
+.fl2{font-size:13px;color:rgba(255,255,255,.6);cursor:pointer;background:none;border:none;font-family:'Nunito',sans-serif;text-align:left;transition:color .2s;}
+.fl2:hover{color:var(--o);}
+.fbot{border-top:1px solid rgba(255,255,255,.08);padding-top:18px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;}
+.fbot p{font-size:12px;color:rgba(255,255,255,.3);}
+.socs{display:flex;gap:8px;margin-top:14px;}
+.soc{width:32px;height:32px;border-radius:50%;background:rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;font-size:13px;cursor:pointer;transition:background .2s;}
+.soc:hover{background:var(--o);}
+.waf{position:fixed;bottom:26px;right:26px;z-index:9999;display:flex;flex-direction:column;align-items:flex-end;gap:10px;}
+.wafb{width:56px;height:56px;border-radius:50%;background:linear-gradient(135deg,#25D366,#128C7E);display:flex;align-items:center;justify-content:center;box-shadow:0 6px 24px rgba(37,211,102,.45);cursor:pointer;border:none;animation:wp 2.5s infinite;}
+.wafb svg{width:28px;height:28px;}
+@keyframes wp{0%,100%{box-shadow:0 6px 24px rgba(37,211,102,.45)}50%{box-shadow:0 6px 36px rgba(37,211,102,.7)}}
+@media(max-width:900px){.hsvg{display:none;}.hc{max-width:100%;}.ag{grid-template-columns:1fr;padding:100px 5% 60px;}.av{max-width:180px;font-size:60px;}.cog{grid-template-columns:1fr;}.fg2{grid-template-columns:1fr 1fr;}}
+@media(max-width:600px){.nl,.nw{display:none;}.hm{display:flex;}.gg{grid-template-columns:repeat(2,1fr);}.fg2{grid-template-columns:1fr;}.vg{grid-template-columns:1fr;}section{padding:56px 5%;}}
+</style>
+</head>
+<body>
+
+<nav>
+<div class="ni">
+  <div class="logo" onclick="gp('home')"><div class="li"><svg viewBox="0 0 52 52" fill="none"><rect x="8" y="14" width="36" height="26" rx="4" fill="white" opacity="0.92"/><rect x="16" y="8" width="20" height="8" rx="2" fill="white" opacity="0.65"/><circle cx="17" cy="27" r="4" fill="#FF6B35"/><circle cx="26" cy="27" r="4" fill="#FF3CAC"/><circle cx="35" cy="27" r="4" fill="#00C2E0"/></svg></div><div class="ln"><span style="color:var(--dk);">Colour</span><span style="color:var(--o);">Copy</span> <span style="color:var(--dk);">Hub</span></div></div>
+  <div class="nl">
+    <button class="nb active" id="nb-home" onclick="gp('home')">Home</button>
+    <button class="nb" id="nb-services" onclick="gp('services')">Services</button>
+    <button class="nb" id="nb-about" onclick="gp('about')">About</button>
+    <button class="nb" id="nb-contact" onclick="gp('contact')">Contact</button>
+  </div>
+  <button class="nw" onclick="wa1()">💬 Order on WhatsApp</button>
+  <div class="hm" onclick="tm()"><span></span><span></span><span></span></div>
+</div>
+</nav>
+<div class="mm" id="mm">
+  <button class="ml active" onclick="gp('home');tm()">🏠 Home</button>
+  <button class="ml" onclick="gp('services');tm()">🖨️ Services</button>
+  <button class="ml" onclick="gp('about');tm()">ℹ️ About</button>
+  <button class="ml" onclick="gp('contact');tm()">📞 Contact</button>
+  <button class="ml" style="color:#25D366;font-weight:700;" onclick="wa1()">💬 WhatsApp Order</button>
+</div>
+
+<!-- HOME -->
+<div class="page active" id="pg-home">
+<section class="hero">
+  <div class="hb" style="width:480px;height:480px;background:rgba(255,107,53,.07);top:-140px;right:-80px;"></div>
+  <div class="hb" style="width:280px;height:280px;background:rgba(255,60,172,.07);bottom:-60px;left:8%;"></div>
+  <div class="hc">
+    <div class="badge">🏥 Medical Book Printing Specialist · Jaipur</div>
+    <h1>Print Your <em>Medical Books</em> in Full Color</h1>
+    <p class="hs">We print <strong>anything</strong> — medical books, college notes, novels, engineering books, law books, question papers, office documents & more — in stunning full colour or crisp B&W. Delivered anywhere in India & abroad. Just WhatsApp your PDF and we handle the rest!</p>
+    <div class="hbts">
+      <button class="bw" onclick="wa1()">💬 +91 80031 02135</button>
+      <button class="bo" onclick="gp('services')">View Prices →</button>
+    </div>
+    <div class="hst">
+      <div class="sb"><div class="sn">5L+</div><div class="sl">Happy Students</div></div>
+      <div class="sb"><div class="sn" style="text-align:center;font-size:28px;">🌍</div><div class="sl">India + Exports</div></div>
+      <div class="sb"><div class="sn">7+</div><div class="sl">Coachings Served</div></div>
+      <div class="sb"><div class="sn">24hr</div><div class="sl">Processing</div></div>
+      <div class="sb"><div class="sn">₹1</div><div class="sl">Colour/Side</div></div>
+    </div>
+  </div>
+  <div class="hsvg">
+    <svg viewBox="0 0 380 400" fill="none">
+      <defs><linearGradient id="g1" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#FF6B35"/><stop offset="100%" stop-color="#FF3CAC"/></linearGradient></defs>
+      <circle cx="190" cy="200" r="170" fill="url(#g1)" opacity="0.10"/>
+      <rect x="70" y="195" width="240" height="148" rx="18" fill="white" style="filter:drop-shadow(0 8px 32px rgba(255,107,53,0.18))"/>
+      <rect x="110" y="150" width="160" height="54" rx="10" fill="white" opacity="0.82"/>
+      <rect x="128" y="262" width="124" height="104" rx="6" fill="white"/>
+      <rect x="142" y="278" width="96" height="9" rx="4.5" fill="#FF6B35" opacity="0.65"/>
+      <rect x="142" y="294" width="96" height="9" rx="4.5" fill="#FF3CAC" opacity="0.55"/>
+      <rect x="142" y="310" width="96" height="9" rx="4.5" fill="#00C2E0" opacity="0.55"/>
+      <circle cx="160" cy="352" r="11" fill="#FF6B35"/>
+      <circle cx="190" cy="352" r="11" fill="#FF3CAC"/>
+      <circle cx="220" cy="352" r="11" fill="#00C2E0"/>
+      <circle cx="142" cy="88" r="11" fill="url(#g1)"/>
+      <circle cx="238" cy="88" r="11" fill="url(#g1)"/>
+      <line x1="142" y1="99" x2="142" y2="124" stroke="url(#g1)" stroke-width="8" stroke-linecap="round"/>
+      <line x1="238" y1="99" x2="238" y2="124" stroke="url(#g1)" stroke-width="8" stroke-linecap="round"/>
+      <path d="M142 124 Q142 148 190 148 Q238 148 238 124" fill="none" stroke="url(#g1)" stroke-width="8" stroke-linecap="round"/>
+      <line x1="190" y1="148" x2="190" y2="168" stroke="url(#g1)" stroke-width="8" stroke-linecap="round"/>
+      <circle cx="190" cy="179" r="19" fill="url(#g1)"/>
+      <circle cx="190" cy="179" r="9" fill="white" opacity="0.55"/>
+    </svg>
+  </div>
+</section>
+<div class="strip">
+  <div class="si">📚 Medical Book Printing</div><div class="si">🖨️ Colour Photocopies</div>
+  <div class="si">📦 Pan-India Delivery</div><div class="si">💸 Bulk Discounts</div>
+  <div class="si">⚡ 24hr Processing</div><div class="si">📱 WhatsApp Orders</div><div class="si">✈️ International Export</div>
+</div>
+<section style="background:#fff;">
+  <div class="tc"><span class="st">Why Choose Us</span><h2 class="sh">Trusted by <em>Medical Students</em> Across India</h2><p class="ss">From Choudhary Colour Xerox Point, Pratap Nagar, Jaipur — printing & delivering across all of India.</p></div>
+  <div class="g3">
+    <div class="card"><div class="ci" style="background:rgba(255,107,53,.1);">🎨</div><h3>Vivid Colour Quality</h3><p>Crystal-clear diagrams and sharp text — exactly what medical books need for effective studying.</p></div>
+    <div class="card"><div class="ci" style="background:rgba(255,60,172,.1);">🚚</div><h3>Pan-India Delivery</h3><p>We ship to all 28 states. From Kashmir to Kanyakumari — your books reach you safely and on time.</p></div>
+    <div class="card"><div class="ci" style="background:rgba(0,194,224,.1);">💰</div><h3>Best Prices</h3><p>Unbeatable rates with special bulk discounts for students ordering full book sets.</p></div>
+    <div class="card"><div class="ci" style="background:rgba(255,214,0,.15);">⚡</div><h3>24hr Processing</h3><p>Most orders printed within 24 hours. Express delivery available for urgent requirements.</p></div>
+    <div class="card"><div class="ci" style="background:rgba(80,180,80,.1);">📱</div><h3>Easy WhatsApp Order</h3><p>Just send your PDF on WhatsApp — no forms, no app needed. Order in under 2 minutes!</p></div>
+    <div class="card"><div class="ci" style="background:rgba(168,85,247,.1);">📦</div><h3>Safe Packaging</h3><p>Bubble wrap + sturdy cardboard box — your books always arrive in perfect condition.</p></div>
+  </div>
+</section>
+<section style="background:var(--lt);">
+  <div class="tc"><span class="st">How It Works</span><h2 class="sh">Order in <em>3 Simple Steps</em></h2><p class="ss">Getting your books printed and delivered is easier than ever.</p></div>
+  <div class="steps">
+    <div class="step"><div class="stnum">1</div><h3>WhatsApp Your PDF</h3><p>Send your PDF or book name to +91 80031 02135 or +91 93528 94393 on WhatsApp.</p></div>
+    <div class="step"><div class="stnum">2</div><h3>We Print & Pack</h3><p>We print in vivid colour, bind your books, and pack them safely — all within 24 hours.</p></div>
+    <div class="step"><div class="stnum">3</div><h3>Delivered to You</h3><p>Your books are shipped pan-India. Receive them at your doorstep anywhere in India!</p></div>
+  </div>
+</section>
+<section style="background:#fff;">
+  <div class="tc"><span class="st">Pricing</span><h2 class="sh"><em>Affordable</em> for Every Student</h2><p class="ss">Transparent pricing with no hidden charges. Bulk orders get special discounts!</p></div>
+  <div class="g4">
+    <div class="pc"><div class="pi">⚫</div><div class="pn">B&W Print</div><div class="pd">Perfect for notes & assignments</div><div class="pp">₹0.5 <small>/side</small></div><div class="ppe">Black & white photocopy</div><ul class="pl"><li>Sharp crisp text</li><li>A4 size</li><li>Single & double sided</li><li>Bulk discount available</li></ul><button class="pbtn pbo" onclick="wa1()">📲 Order Now</button></div>
+    <div class="pc pop"><div class="pb">⭐ Most Popular</div><div class="pi">🎨</div><div class="pn">Colour Print</div><div class="pd">Ideal for medical books with diagrams</div><div class="pp">₹1 <small>/side</small></div><div class="ppe">Full colour — single side</div><ul class="pl"><li>Vivid color quality</li><li>Medical diagrams sharp</li><li>A4 size</li><li>75 GSM standard paper</li></ul><button class="pbtn pbf" onclick="wa1()">📲 Order Now</button></div>
+    <div class="pc"><div class="pi">📚</div><div class="pn">Book Set</div><div class="pd">Complete year-wise MBBS sets</div><div class="pp" style="font-size:20px;margin-top:8px;">Contact for Price</div><div class="ppe">Custom quote based on your requirement</div><ul class="pl"><li>Full colour printing</li><li>All subjects covered</li><li>Spiral ₹20 / Hard cover ₹30</li><li>Pan-India delivery</li></ul><button class="pbtn pbf" onclick="wa1()">📲 Get Quote</button></div>
+    <div class="pc"><div class="pi">🏢</div><div class="pn">Bulk Order</div><div class="pd">For colleges & institutes</div><div class="pp">Custom</div><div class="ppe">Best rates guaranteed</div><ul class="pl"><li>Special bulk pricing</li><li>1000+ pages discount</li><li>Priority processing</li><li>Custom packaging</li></ul><button class="pbtn pbo" onclick="wa2()">📲 Get Quote</button></div>
+  </div>
+</section>
+<section style="background:var(--lt);">
+  <div class="tc"><span class="st">Our Work</span><h2 class="sh">See Our <em>Print Quality</em></h2><p class="ss">Every order printed with precision and care — from single pages to full book sets.</p></div>
+  <div class="gg">
+    <div class="gi" style="background:linear-gradient(135deg,#FF6B35,#FF3CAC);">📚<div class="gl">MBBS Colour Books</div></div>
+    <div class="gi" style="background:linear-gradient(135deg,#FF3CAC,#a855f7);">🫀<div class="gl">Anatomy Diagrams</div></div>
+    <div class="gi" style="background:linear-gradient(135deg,#00C2E0,#0077aa);">💊<div class="gl">Pharmacology Notes</div></div>
+    <div class="gi" style="background:linear-gradient(135deg,#FFD600,#FF6B35);">📋<div class="gl">Study Materials</div></div>
+    <div class="gi" style="background:linear-gradient(135deg,#50b450,#00C2E0);">📦<div class="gl">Safe Packaging</div></div>
+    <div class="gi" style="background:linear-gradient(135deg,#FF6B35,#FFD600);">🚚<div class="gl">Pan-India Delivery</div></div>
+  </div>
+  <p style="text-align:center;margin-top:18px;font-size:13px;color:var(--mu);">📸 Follow <strong style="color:var(--o);cursor:pointer;" onclick="window.open('https://www.instagram.com/colourcopyhub','_blank')">@colourcopyhub</strong> on Instagram for real print photos!</p>
+</section>
+<section style="background:#fff;">
+  <div class="tc"><span class="st">Reviews</span><h2 class="sh">Students <em>Love Us</em> ❤️</h2><p class="ss">Real feedback from real students across India.</p></div>
+  <div class="rg">
+    <div class="rc"><div class="rs">★★★★★</div><p class="rt">"Got my complete MBBS 1st year colour books delivered to Delhi in just 3 days! Quality is amazing — diagrams are super clear. Will definitely order again!"</p><div class="ra"><div class="rav">RK</div><div><div class="rn">Rahul Kumar</div><div class="rr">MBBS 1st Year · Delhi</div></div></div></div>
+    <div class="rc"><div class="rs">★★★★★</div><p class="rt">"Ordered pharmacology and pathology books. Color print quality is excellent and price is very reasonable. Best printing service for medical students!"</p><div class="ra"><div class="rav">PS</div><div><div class="rn">Priya Sharma</div><div class="rr">MBBS 2nd Year · Mumbai</div></div></div></div>
+    <div class="rc"><div class="rs">★★★★★</div><p class="rt">"Just WhatsApp the PDF and they handle everything. Books came perfectly packed to Bangalore. Saved so much compared to local printing!"</p><div class="ra"><div class="rav">AV</div><div><div class="rn">Arjun Verma</div><div class="rr">NEET Aspirant · Bangalore</div></div></div></div>
+  </div>
+</section>
+<section style="background:var(--lt);">
+  <div class="tc"><span class="st">Delivery</span><h2 class="sh">We Deliver <em>Pan-India &amp; Internationally</em> 🇮🇳✈️</h2><p class="ss">From Choudhary Colour Xerox Point, Pratap Nagar, Jaipur — to every corner of India and internationally!</p></div>
+  <div class="dg">
+    <div class="dc"><div class="di">⚡</div><div class="dt">24hr Processing</div><div class="dd">Order printed within 24 hours of receiving PDF</div></div>
+    <div class="dc"><div class="di">🚚</div><div class="dt">2–5 Day Delivery</div><div class="dd">Standard delivery across all states</div></div>
+    <div class="dc"><div class="di">🔒</div><div class="dt">Safe Packaging</div><div class="dd">Bubble wrap + hard box — 100% safe</div></div>
+    <div class="dc"><div class="di">📍</div><div class="dt">All 28 States</div><div class="dd">Delivering to every pin code in India</div></div><div class="dc"><div class="di">✈️</div><div class="dt">International Export</div><div class="dd">We ship to USA, UK, UAE, Canada &amp; more</div></div>
+  </div>
+  <div class="stt">
+    <span class="sp">Rajasthan</span><span class="sp">Delhi</span><span class="sp">Maharashtra</span><span class="sp">Karnataka</span>
+    <span class="sp">Tamil Nadu</span><span class="sp">Gujarat</span><span class="sp">UP</span><span class="sp">West Bengal</span>
+    <span class="sp">Telangana</span><span class="sp">MP</span><span class="sp">Bihar</span><span class="sp">Punjab</span>
+    <span class="sp">Haryana</span><span class="sp">Kerala</span><span class="sp">AP</span><span class="sp">+ All States ✓</span><span class="sp">✈️ USA</span><span class="sp">✈️ UK</span><span class="sp">✈️ UAE</span><span class="sp">✈️ Canada</span><span class="sp">✈️ Australia</span><span class="sp">✈️ &amp; more</span>
+  </div>
+</section>
+<section style="background:#fff;">
+  <div class="tc"><span class="st">Price Calculator</span><h2 class="sh">Get an <em>Instant Estimate</em> 🧮</h2><p class="ss">Enter your print details below and get an estimated cost instantly!</p></div>
+  <div style="max-width:680px;margin:44px auto 0;background:var(--lt);border-radius:24px;padding:36px;border:1.5px solid rgba(255,107,53,0.15);">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;">
+      <div class="fg">
+        <label class="fl" style="display:block;font-size:13px;font-weight:700;color:var(--dk);margin-bottom:6px;">B&W Pages (single side)</label>
+        <input class="fi" id="bw-pages" type="number" min="0" value="0" placeholder="e.g. 100" oninput="calcPrice()" style="width:100%;padding:11px 14px;border-radius:10px;border:1.5px solid rgba(255,107,53,.15);font-size:14px;font-family:Nunito,sans-serif;outline:none;background:white;"/>
+      </div>
+      <div class="fg">
+        <label class="fl" style="display:block;font-size:13px;font-weight:700;color:var(--dk);margin-bottom:6px;">B&W Pages (double side)</label>
+        <input class="fi" id="bwd-pages" type="number" min="0" value="0" placeholder="e.g. 50" oninput="calcPrice()" style="width:100%;padding:11px 14px;border-radius:10px;border:1.5px solid rgba(255,107,53,.15);font-size:14px;font-family:Nunito,sans-serif;outline:none;background:white;"/>
+      </div>
+      <div class="fg">
+        <label class="fl" style="display:block;font-size:13px;font-weight:700;color:var(--dk);margin-bottom:6px;">Colour Pages (single side)</label>
+        <input class="fi" id="col-pages" type="number" min="0" value="0" placeholder="e.g. 200" oninput="calcPrice()" style="width:100%;padding:11px 14px;border-radius:10px;border:1.5px solid rgba(255,107,53,.15);font-size:14px;font-family:Nunito,sans-serif;outline:none;background:white;"/>
+      </div>
+      <div class="fg">
+        <label class="fl" style="display:block;font-size:13px;font-weight:700;color:var(--dk);margin-bottom:6px;">Colour Pages (double side)</label>
+        <input class="fi" id="cold-pages" type="number" min="0" value="0" placeholder="e.g. 100" oninput="calcPrice()" style="width:100%;padding:11px 14px;border-radius:10px;border:1.5px solid rgba(255,107,53,.15);font-size:14px;font-family:Nunito,sans-serif;outline:none;background:white;"/>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:4px;">
+      <div>
+        <label class="fl" style="display:block;font-size:13px;font-weight:700;color:var(--dk);margin-bottom:6px;">Binding</label>
+        <select id="binding" onchange="calcPrice()" style="width:100%;padding:11px 14px;border-radius:10px;border:1.5px solid rgba(255,107,53,.15);font-size:14px;font-family:Nunito,sans-serif;outline:none;background:white;appearance:none;cursor:pointer;">
+          <option value="0">No binding</option>
+          <option value="20">Spiral binding (₹20/book)</option>
+          <option value="30">Hard cover binding (₹30/book)</option>
+          <option value="20">Perfect binding — bulk only (₹20/book)</option>
+        </select>
+      </div>
+      <div>
+        <label class="fl" style="display:block;font-size:13px;font-weight:700;color:var(--dk);margin-bottom:6px;">Copies (quantity)</label>
+        <input class="fi" id="copies" type="number" min="1" value="1" placeholder="1" oninput="calcPrice()" style="width:100%;padding:11px 14px;border-radius:10px;border:1.5px solid rgba(255,107,53,.15);font-size:14px;font-family:Nunito,sans-serif;outline:none;background:white;"/>
+      </div>
+    </div>
+    <!-- Result -->
+    <div id="calc-result" style="margin-top:28px;background:white;border-radius:16px;padding:24px;border:1.5px solid rgba(255,107,53,0.2);display:none;">
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:16px;">
+        <div style="text-align:center;padding:12px;background:var(--lt);border-radius:10px;">
+          <div style="font-size:11px;font-weight:700;color:var(--mu);text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px;">B&W Cost</div>
+          <div id="bw-cost" style="font-size:20px;font-weight:800;color:var(--dk);">₹0</div>
+        </div>
+        <div style="text-align:center;padding:12px;background:var(--lt);border-radius:10px;">
+          <div style="font-size:11px;font-weight:700;color:var(--mu);text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px;">Colour Cost</div>
+          <div id="col-cost" style="font-size:20px;font-weight:800;color:var(--dk);">₹0</div>
+        </div>
+        <div style="text-align:center;padding:12px;background:var(--lt);border-radius:10px;">
+          <div style="font-size:11px;font-weight:700;color:var(--mu);text-transform:uppercase;letter-spacing:.06em;margin-bottom:4px;">Binding</div>
+          <div id="bind-cost" style="font-size:20px;font-weight:800;color:var(--dk);">₹0</div>
+        </div>
+      </div>
+      <div style="background:var(--gr);border-radius:12px;padding:16px 20px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:10px;">
+        <div>
+          <div style="font-size:13px;color:rgba(255,255,255,0.8);font-weight:600;">Estimated Total</div>
+          <div id="total-cost" style="font-size:32px;font-weight:900;color:white;font-family:Poppins,sans-serif;">₹0</div>
+          <div style="font-size:11px;color:rgba(255,255,255,0.7);">*Shipping charged separately · Bulk orders get discount</div>
+        </div>
+        <button onclick="orderCalc()" style="background:white;color:var(--o);border:none;padding:12px 24px;border-radius:50px;font-size:14px;font-weight:700;cursor:pointer;font-family:Nunito,sans-serif;">💬 Order on WhatsApp</button>
+      </div>
+    </div>
+    <div id="calc-placeholder" style="margin-top:20px;text-align:center;color:var(--mu);font-size:14px;">👆 Enter your page counts above to see estimated cost</div>
+  </div>
+</section>
+
+<div class="cta">
+  <h2>Ready to Order Your Books? 📚</h2>
+  <p>Just WhatsApp your PDF — we print, bind and deliver to your door anywhere in India!</p>
+  <button class="bwh" onclick="wa1()">💬 +91 80031 02135</button>
+  <button class="bwh" onclick="wa2()">💬 +91 93528 94393</button>
+</div>
+<footer>
+  <div class="fg2">
+    <div><div class="logo" style="cursor:default;"><div class="li"><svg viewBox="0 0 52 52" fill="none"><rect x="8" y="14" width="36" height="26" rx="4" fill="white" opacity="0.92"/><circle cx="17" cy="27" r="4" fill="#FF6B35"/><circle cx="26" cy="27" r="4" fill="#FF3CAC"/><circle cx="35" cy="27" r="4" fill="#00C2E0"/></svg></div><div class="ln"><span style="color:#fff;">Colour</span><span style="color:var(--o);">Copy</span> <span style="color:rgba(255,255,255,0.7);">Hub</span></div></div><p class="fbp">Choudhary Colour Xerox Point, Pratap Nagar, Jaipur, Rajasthan. Printing & delivering medical books pan-India.</p><div class="socs"><div class="soc" onclick="wa1()">💬</div><div class="soc" onclick="window.open('https://www.instagram.com/colourcopyhub','_blank')">📸</div><div class="soc" onclick="window.open('https://www.youtube.com/@ColourCopyHub','_blank')">▶️</div></div></div>
+    <div><div class="ft">Pages</div><div class="fls"><button class="fl2" onclick="gp('home')">Home</button><button class="fl2" onclick="gp('services')">Services</button><button class="fl2" onclick="gp('about')">About Us</button><button class="fl2" onclick="gp('contact')">Contact</button></div></div>
+    <div><div class="ft">Contact</div><div class="fls"><span class="fl2" style="cursor:default;">📱 +91 80031 02135</span><span class="fl2" style="cursor:default;">📱 +91 93528 94393</span><span class="fl2" style="cursor:default;">📍 Pratap Nagar, Jaipur</span><span class="fl2" style="cursor:pointer;color:var(--o);" onclick="window.open('https://www.instagram.com/colourcopyhub','_blank')">📸 @colourcopyhub</span><span class="fl2" style="cursor:pointer;color:var(--o);" onclick="window.open('https://www.youtube.com/@ColourCopyHub','_blank')">▶️ @ColourCopyHub</span></div></div>
+  </div>
+  <div class="fbot"><p>© 2025 ColourCopy Hub · Choudhary Colour Xerox Point, Jaipur</p><p style="color:rgba(255,255,255,.25);">Made with ❤️ for Medical Students across India</p></div>
+</footer>
+</div>
+
+<!-- SERVICES -->
+<div class="page" id="pg-services">
+<div class="pgh"><span class="st">Our Services</span><h2 class="sh">Everything You Need, <em>Printed Perfectly</em></h2><p class="ss" style="margin:0 auto;max-width:500px;">From single-page colour copies to complete MBBS book sets — we do it all and deliver pan-India.</p></div>
+<section style="background:#fff;">
+  <div class="sdg">
+    <div class="sdc"><div class="sdi">🎨</div><div class="sdt">Colour Book Printing</div><div class="sdd">Our specialty! Full-colour printing of medical books with vivid, accurate colors for every diagram, chart and image. Perfect for MBBS, BDS and nursing books.</div><div class="sdf"><div>MBBS all year books</div><div>BDS complete sets</div><div>NEET preparation books</div><div>Anatomy atlas prints</div><div>Starting ₹5/page</div></div><button class="bg" style="margin-top:20px;font-size:14px;padding:11px 22px;" onclick="wa1()">📲 Order Now</button></div>
+    <div class="sdc"><div class="sdi">🖨️</div><div class="sdt">B&W Photocopying</div><div class="sdd">Crisp, clear black and white photocopies for notes, assignments and question papers at the most affordable rates.</div><div class="sdf"><div>Study notes & handouts</div><div>Question paper sets</div><div>Assignment copies</div><div>Office documents</div><div>Starting ₹0.5/side</div></div><button class="bg" style="margin-top:20px;font-size:14px;padding:11px 22px;" onclick="wa1()">📲 Order Now</button></div>
+    <div class="sdc"><div class="sdi">📚</div><div class="sdt">Complete Book Sets</div><div class="sdd">Order your complete year-wise MBBS, BDS or paramedical book sets in one go. We print, bind and deliver everything together.</div><div class="sdf"><div>MBBS 1st to Final year</div><div>BDS complete course</div><div>AIIMS & PGI pattern</div><div>Paramedical books</div><div>Custom sets on request</div></div><button class="bg" style="margin-top:20px;font-size:14px;padding:11px 22px;" onclick="wa1()">📲 Get Quote</button></div>
+    <div class="sdc"><div class="sdi">📖</div><div class="sdt">Binding Services</div><div class="sdd">Professional binding to keep your books intact and looking great. Choose from spiral, perfect or hard binding.</div><div class="sdf"><div>Spiral binding</div><div>Perfect (glue) binding</div><div>Hard cover binding</div><div>All sizes available</div></div><button class="bg" style="margin-top:20px;font-size:14px;padding:11px 22px;" onclick="wa1()">📲 Order Now</button></div>
+    <div class="sdc"><div class="sdi">🏢</div><div class="sdt">Bulk & Institutional</div><div class="sdd">Special rates for colleges, coaching institutes and offices ordering large quantities.</div><div class="sdf"><div>Coaching institute material</div><div>College notes sets</div><div>Hospital forms & reports</div><div>Corporate printing</div><div>Custom bulk pricing</div></div><button class="bg" style="margin-top:20px;font-size:14px;padding:11px 22px;" onclick="wa2()">📲 Get Quote</button></div>
+    <div class="sdc"><div class="sdi">🚚</div><div class="sdt">Pan-India Shipping</div><div class="sdd">We ship to every corner of India using trusted courier partners with safe bubble-wrap packaging.</div><div class="sdf"><div>All 28 states & 8 UTs</div><div>2–5 day standard delivery</div><div>Express delivery available</div><div>Order tracking provided</div><div>Safe bubble-wrap packaging</div></div><button class="bg" style="margin-top:20px;font-size:14px;padding:11px 22px;" onclick="wa1()">📲 Order Now</button></div>
+  </div>
+</section>
+<section style="background:var(--lt);">
+  <div class="tc"><span class="st">Pricing</span><h2 class="sh"><em>Simple & Transparent</em> Pricing</h2><p class="ss">No hidden charges. Bulk orders always get extra discount!</p></div>
+  <div class="g4">
+    <div class="pc"><div class="pi">⚫</div><div class="pn">B&W Copy</div><div class="pd">Text notes & assignments</div><div class="pp">₹0.5 <small>/side</small></div><div class="ppe">Black & white</div><ul class="pl"><li>A4 size</li><li>Single & double sided</li><li>Bulk discount available</li></ul><button class="pbtn pbo" onclick="wa1()">📲 Order</button></div>
+    <div class="pc pop"><div class="pb">⭐ Popular</div><div class="pi">🎨</div><div class="pn">Colour Print</div><div class="pd">Medical books & diagrams</div><div class="pp">₹1 <small>/side</small></div><div class="ppe">Full colour</div><ul class="pl"><li>Vivid color quality</li><li>A4 size</li><li>75 GSM standard paper</li></ul><button class="pbtn pbf" onclick="wa1()">📲 Order</button></div>
+    <div class="pc"><div class="pi">📚</div><div class="pn">Book Set</div><div class="pd">Complete year sets</div><div class="pp" style="font-size:20px;margin-top:8px;">Contact for Price</div><div class="ppe">Custom quote on request</div><ul class="pl"><li>Full colour</li><li>All subjects</li><li>Binding + delivery</li></ul><button class="pbtn pbf" onclick="wa1()">📲 Get Quote</button></div>
+    <div class="pc"><div class="pi">🏢</div><div class="pn">Bulk Order</div><div class="pd">1000+ pages</div><div class="pp">Best<small> rates</small></div><div class="ppe">Custom pricing</div><ul class="pl"><li>Maximum discount</li><li>Priority processing</li><li>Custom packaging</li></ul><button class="pbtn pbo" onclick="wa2()">📲 Quote</button></div>
+  </div>
+</section>
+<div class="cta"><h2>Not Sure? Just Ask Us! 😊</h2><p>WhatsApp us your requirement and we'll suggest the best option for you.</p><button class="bwh" onclick="wa1()">💬 +91 80031 02135</button><button class="bwh" onclick="wa2()">💬 +91 93528 94393</button></div>
+<footer><div class="fg2"><div><div class="logo" style="cursor:default;"><div class="li"><svg viewBox="0 0 52 52" fill="none"><rect x="8" y="14" width="36" height="26" rx="4" fill="white" opacity="0.92"/><circle cx="17" cy="27" r="4" fill="#FF6B35"/><circle cx="26" cy="27" r="4" fill="#FF3CAC"/><circle cx="35" cy="27" r="4" fill="#00C2E0"/></svg></div><div class="ln"><span style="color:#fff;">Colour</span><span style="color:var(--o);">Copy</span> <span style="color:rgba(255,255,255,0.7);">Hub</span></div></div><p class="fbp">Choudhary Colour Xerox Point, Pratap Nagar, Jaipur, Rajasthan.</p></div><div><div class="ft">Pages</div><div class="fls"><button class="fl2" onclick="gp('home')">Home</button><button class="fl2" onclick="gp('services')">Services</button><button class="fl2" onclick="gp('about')">About</button><button class="fl2" onclick="gp('contact')">Contact</button></div></div><div><div class="ft">Contact</div><div class="fls"><span class="fl2" style="cursor:default;">📱 +91 80031 02135</span><span class="fl2" style="cursor:default;">📱 +91 93528 94393</span><span class="fl2" style="cursor:default;">📍 Pratap Nagar, Jaipur</span></div></div></div><div class="fbot"><p>© 2025 ColourCopy Hub · Jaipur</p></div></footer>
+</div>
+
+<!-- ABOUT -->
+<div class="page" id="pg-about">
+<div class="ag">
+  <div>
+    <span class="st">About Us</span>
+    <h2 class="sh" style="margin-top:8px;">Your Trusted <em>Medical Printing Partner</em></h2>
+    <p style="font-size:15px;color:var(--mu);line-height:1.75;margin:16px 0;">We are <strong>Choudhary Colour Xerox Point</strong>, based in Pratap Nagar, Jaipur — a printing shop with a big mission: to make high-quality medical book printing affordable and accessible to every student across India.</p>
+    <p style="font-size:15px;color:var(--mu);line-height:1.75;margin-bottom:16px;">We specialise in colour printing of MBBS, BDS and NEET books and ship pan-India at prices no local shop can beat. Our YouTube channel <strong style="color:var(--o);">ColourCopy Hub</strong> and Instagram <strong style="color:var(--o);">@colourcopyhub</strong> help thousands of medical students with free study content every day.</p>
+    <div class="vg">
+      <div class="val"><div class="vn">5L+</div><div class="vt">Happy Students</div><div class="vd">Served across India</div></div>
+      <div class="val"><div style="font-size:44px;line-height:1;margin-bottom:6px;">🌍</div><div class="vt">India + Exports</div><div class="vd">Pan-India &amp; international shipping</div></div>
+      <div class="val"><div class="vn">24hr</div><div class="vt">Processing</div><div class="vd">Fast turnaround always</div></div>
+      <div class="val"><div class="vn">₹1</div><div class="vt">Colour/Side</div><div class="vd">Best price guaranteed</div></div>
+      <div class="val"><div class="vn">7+</div><div class="vt">Coachings</div><div class="vd">Institutes we have worked with</div></div>
+    </div>
+  </div>
+  <div style="display:flex;justify-content:center;"><div class="av">🖨️</div></div>
+</div>
+<section style="background:var(--lt);">
+  <div class="tc"><span class="st">Our Values</span><h2 class="sh">What We <em>Stand For</em></h2></div>
+  <div class="g3">
+    <div class="card"><div class="ci" style="background:rgba(255,107,53,.1);">🎯</div><h3>Quality First</h3><p>We never compromise on print quality. Every page is checked before packing and shipping to you.</p></div>
+    <div class="card"><div class="ci" style="background:rgba(255,60,172,.1);">💰</div><h3>Affordability</h3><p>Medical education is expensive enough. We keep our printing prices as low as possible for students.</p></div>
+    <div class="card"><div class="ci" style="background:rgba(0,194,224,.1);">❤️</div><h3>Student First</h3><p>Every decision we make puts the student first — from pricing to packaging to delivery speed.</p></div>
+  </div>
+</section>
+<div class="cta"><h2>We're Just a WhatsApp Away 😊</h2><p>Reach us directly at Pratap Nagar, Jaipur — we reply fast, usually within minutes!</p><button class="bwh" onclick="wa1()">💬 +91 80031 02135</button><button class="bwh" onclick="wa2()">💬 +91 93528 94393</button></div>
+<footer><div class="fg2"><div><div class="logo" style="cursor:default;"><div class="li"><svg viewBox="0 0 52 52" fill="none"><rect x="8" y="14" width="36" height="26" rx="4" fill="white" opacity="0.92"/><circle cx="17" cy="27" r="4" fill="#FF6B35"/><circle cx="26" cy="27" r="4" fill="#FF3CAC"/><circle cx="35" cy="27" r="4" fill="#00C2E0"/></svg></div><div class="ln"><span style="color:#fff;">Colour</span><span style="color:var(--o);">Copy</span> <span style="color:rgba(255,255,255,0.7);">Hub</span></div></div><p class="fbp">Choudhary Colour Xerox Point, Pratap Nagar, Jaipur, Rajasthan.</p></div><div><div class="ft">Pages</div><div class="fls"><button class="fl2" onclick="gp('home')">Home</button><button class="fl2" onclick="gp('services')">Services</button><button class="fl2" onclick="gp('about')">About</button><button class="fl2" onclick="gp('contact')">Contact</button></div></div><div><div class="ft">Contact</div><div class="fls"><span class="fl2" style="cursor:default;">📱 +91 80031 02135</span><span class="fl2" style="cursor:default;">📱 +91 93528 94393</span><span class="fl2" style="cursor:default;">📍 Pratap Nagar, Jaipur</span></div></div></div><div class="fbot"><p>© 2025 ColourCopy Hub · Jaipur</p></div></footer>
+</div>
+
+<!-- CONTACT -->
+<div class="page" id="pg-contact">
+<div class="pgh"><span class="st">Contact Us</span><h2 class="sh">Get in <em>Touch</em> — We Reply Fast! ⚡</h2><p class="ss" style="margin:0 auto;max-width:480px;">WhatsApp is the fastest way. Or fill in the form and we'll get back to you!</p></div>
+<section style="background:#fff;">
+  <div class="cog">
+    <div>
+      <div class="wac" style="margin-bottom:16px;">
+        <h3>💬 WhatsApp — Fastest Way to Order!</h3>
+        <p>Send your PDF and get a quote in minutes. Available 9 AM – 9 PM daily.</p>
+        <button class="bwaw" onclick="wa1()">📲 +91 80031 02135</button>
+        <button class="bwaw" onclick="wa2()">📲 +91 93528 94393</button>
+      </div>
+      <div class="cis">
+        <div class="cic"><div class="cii">📍</div><div><div class="cit">Shop Address</div><div class="civ">Choudhary Colour Xerox Point<br>Pratap Nagar, Jaipur, Rajasthan</div></div></div>
+        <div class="cic"><div class="cii">📱</div><div><div class="cit">WhatsApp / Call</div><div class="civ">+91 80031 02135<br>+91 93528 94393</div></div></div>
+        <div class="cic"><div class="cii">⏰</div><div><div class="cit">Working Hours</div><div class="civ">Mon–Sat: 9 AM – 9 PM<br>Sunday: 10 AM – 6 PM</div></div></div>
+        <div class="cic"><div class="cii">📸</div><div><div class="cit">Social Media</div><div class="civ"><span style="cursor:pointer;color:var(--o);" onclick="window.open('https://www.instagram.com/colourcopyhub','_blank')">📸 Instagram: @colourcopyhub</span><br><span style="cursor:pointer;color:var(--o);" onclick="window.open('https://www.youtube.com/@ColourCopyHub','_blank')">▶️ YouTube: @ColourCopyHub</span></div></div></div>
+      </div>
+    </div>
+    <div class="cf">
+      <h3 style="font-size:18px;font-weight:700;color:var(--dk);margin-bottom:20px;">Send Us a Message</h3>
+      <div class="fg"><label class="fl">Your Name</label><input class="fi" id="f-name" type="text" placeholder="e.g. Rahul Kumar"/></div>
+      <div class="fg"><label class="fl">City / State</label><input class="fi" id="f-city" type="text" placeholder="e.g. Mumbai, Maharashtra"/></div>
+      <div class="fg"><label class="fl">What do you need?</label>
+        <select class="fi" id="f-service" style="appearance:none;cursor:pointer;">
+          <option value="">Select a service...</option>
+          <option>Color Medical Book Printing</option>
+          <option>B&W Photocopying</option>
+          <option>Complete Book Set</option>
+          <option>Bulk Order</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="fg"><label class="fl">More Details</label><textarea class="fi" id="f-details-fix" placeholder="e.g. MBBS 1st year, 300 pages, colour print, 2 copies..."></textarea></div>
+      <div style="background:rgba(255,107,53,0.06);border:1.5px dashed rgba(255,107,53,0.3);border-radius:12px;padding:14px 16px;margin-bottom:16px;display:flex;align-items:flex-start;gap:12px;">
+        <span style="font-size:22px;">📎</span>
+        <div>
+          <div style="font-size:13px;font-weight:700;color:var(--dk);margin-bottom:3px;">Don't forget to attach your PDF!</div>
+          <div style="font-size:12px;color:var(--mu);line-height:1.6;">After clicking below, WhatsApp will open with your details. <strong style="color:var(--o);">Please attach your PDF</strong> before sending — helps us process faster! 🙏</div>
+        </div>
+      </div>
+      <button class="bg" style="width:100%;justify-content:center;" onclick="sendFormToWA()">💬 Send via WhatsApp & Attach PDF</button>
+      <p style="font-size:11px;color:var(--mu);text-align:center;margin-top:10px;">WhatsApp will open with your details pre-filled!</p>
+    </div>
+  </div>
+</section>
+
+<section style="background:var(--lt);padding:72px 5%;">
+  <div style="text-align:center;">
+    <span style="display:inline-block;background:rgba(255,107,53,.1);color:var(--o);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:5px 14px;border-radius:50px;margin-bottom:10px;">Website Feedback</span>
+    <h2 style="font-size:clamp(24px,3vw,38px);font-weight:800;color:var(--dk);margin-bottom:10px;">How Do You Like Our <span style="background:var(--gr);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;">Website?</span> ⭐</h2>
+    <p style="font-size:15px;color:var(--mu);max-width:420px;margin:0 auto;">Your feedback helps us improve! Takes just 10 seconds 😊</p>
+  </div>
+  <div style="max-width:600px;margin:36px auto 0;background:white;border-radius:22px;padding:32px;border:1px solid rgba(255,107,53,0.12);box-shadow:0 4px 24px rgba(0,0,0,0.05);">
+    <div style="margin-bottom:20px;">
+      <label style="display:block;font-size:13px;font-weight:700;color:var(--dk);margin-bottom:6px;">Your Name <span style="font-weight:400;color:var(--mu);">(optional)</span></label>
+      <input id="r-name" type="text" placeholder="e.g. Rahul Kumar" style="width:100%;padding:11px 14px;border-radius:10px;border:1.5px solid rgba(255,107,53,0.15);font-size:14px;font-family:Nunito,sans-serif;outline:none;background:var(--lt);"/>
+    </div>
+    <div style="text-align:center;margin-bottom:24px;">
+      <div style="font-size:13px;font-weight:700;color:var(--dk);margin-bottom:12px;">Rate your experience</div>
+      <div style="display:flex;justify-content:center;gap:10px;font-size:40px;cursor:pointer;">
+        <span class="star" onclick="setStar(1)" data-v="1" style="opacity:0.3;transition:all 0.2s;display:inline-block;">⭐</span>
+        <span class="star" onclick="setStar(2)" data-v="2" style="opacity:0.3;transition:all 0.2s;display:inline-block;">⭐</span>
+        <span class="star" onclick="setStar(3)" data-v="3" style="opacity:0.3;transition:all 0.2s;display:inline-block;">⭐</span>
+        <span class="star" onclick="setStar(4)" data-v="4" style="opacity:0.3;transition:all 0.2s;display:inline-block;">⭐</span>
+        <span class="star" onclick="setStar(5)" data-v="5" style="opacity:0.3;transition:all 0.2s;display:inline-block;">⭐</span>
+      </div>
+      <div id="star-label" style="font-size:13px;color:var(--o);font-weight:700;margin-top:8px;min-height:20px;"></div>
+    </div>
+    <div style="margin-bottom:16px;">
+      <div style="font-size:13px;font-weight:700;color:var(--dk);margin-bottom:10px;">What did you like? (tap all that apply)</div>
+      <div style="display:flex;flex-wrap:wrap;gap:8px;">
+        <span class="rtag" onclick="toggleTag(this)" style="font-size:12px;padding:6px 14px;border-radius:50px;border:1.5px solid rgba(255,107,53,0.25);cursor:pointer;transition:all 0.2s;color:var(--mu);">✨ Clean design</span>
+        <span class="rtag" onclick="toggleTag(this)" style="font-size:12px;padding:6px 14px;border-radius:50px;border:1.5px solid rgba(255,107,53,0.25);cursor:pointer;transition:all 0.2s;color:var(--mu);">💰 Clear pricing</span>
+        <span class="rtag" onclick="toggleTag(this)" style="font-size:12px;padding:6px 14px;border-radius:50px;border:1.5px solid rgba(255,107,53,0.25);cursor:pointer;transition:all 0.2s;color:var(--mu);">🧮 Price calculator</span>
+        <span class="rtag" onclick="toggleTag(this)" style="font-size:12px;padding:6px 14px;border-radius:50px;border:1.5px solid rgba(255,107,53,0.25);cursor:pointer;transition:all 0.2s;color:var(--mu);">📱 Easy to use</span>
+        <span class="rtag" onclick="toggleTag(this)" style="font-size:12px;padding:6px 14px;border-radius:50px;border:1.5px solid rgba(255,107,53,0.25);cursor:pointer;transition:all 0.2s;color:var(--mu);">🚚 Delivery info</span>
+        <span class="rtag" onclick="toggleTag(this)" style="font-size:12px;padding:6px 14px;border-radius:50px;border:1.5px solid rgba(255,107,53,0.25);cursor:pointer;transition:all 0.2s;color:var(--mu);">📋 Service details</span>
+      </div>
+    </div>
+    <div style="margin-bottom:20px;">
+      <label style="display:block;font-size:13px;font-weight:700;color:var(--dk);margin-bottom:6px;">Any suggestions to improve? (optional)</label>
+      <textarea id="r-suggest" style="width:100%;padding:11px 14px;border-radius:10px;border:1.5px solid rgba(255,107,53,0.15);font-size:14px;font-family:Nunito,sans-serif;outline:none;background:var(--lt);resize:vertical;min-height:80px;" placeholder="Tell us how we can make this website better..."></textarea>
+    </div>
+    <button onclick="sendReview()" style="width:100%;padding:13px;border-radius:50px;background:var(--gr);color:white;font-size:15px;font-weight:700;border:none;cursor:pointer;font-family:Nunito,sans-serif;">💬 Send Feedback on WhatsApp</button>
+    <p style="font-size:11px;color:var(--mu);text-align:center;margin-top:8px;">Opens WhatsApp — your feedback goes directly to us!</p>
+  </div>
+</section>
+<div class="cta"><h2>Best Way to Order? Just WhatsApp! 📱</h2><p>Send your PDF and get your books printed & delivered anywhere in India.</p><button class="bwh" onclick="wa1()">💬 +91 80031 02135</button><button class="bwh" onclick="wa2()">💬 +91 93528 94393</button></div>
+<footer><div class="fg2"><div><div class="logo" style="cursor:default;"><div class="li"><svg viewBox="0 0 52 52" fill="none"><rect x="8" y="14" width="36" height="26" rx="4" fill="white" opacity="0.92"/><circle cx="17" cy="27" r="4" fill="#FF6B35"/><circle cx="26" cy="27" r="4" fill="#FF3CAC"/><circle cx="35" cy="27" r="4" fill="#00C2E0"/></svg></div><div class="ln"><span style="color:#fff;">Colour</span><span style="color:var(--o);">Copy</span> <span style="color:rgba(255,255,255,0.7);">Hub</span></div></div><p class="fbp">Choudhary Colour Xerox Point, Pratap Nagar, Jaipur, Rajasthan.</p></div><div><div class="ft">Pages</div><div class="fls"><button class="fl2" onclick="gp('home')">Home</button><button class="fl2" onclick="gp('services')">Services</button><button class="fl2" onclick="gp('about')">About</button><button class="fl2" onclick="gp('contact')">Contact</button></div></div><div><div class="ft">Contact</div><div class="fls"><span class="fl2" style="cursor:default;">📱 +91 80031 02135</span><span class="fl2" style="cursor:default;">📱 +91 93528 94393</span><span class="fl2" style="cursor:default;">📍 Pratap Nagar, Jaipur</span></div></div></div><div class="fbot"><p>© 2025 ColourCopy Hub · Jaipur</p></div></footer>
+</div>
+
+<!-- FLOATING WA -->
+<div class="waf" onclick="wa1()">
+  <button class="wafb">
+    <svg viewBox="0 0 24 24" fill="white"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 0C5.373 0 0 5.373 0 12c0 2.104.548 4.076 1.506 5.789L.057 23.01a.75.75 0 00.932.933l5.222-1.45A11.94 11.94 0 0012 24c6.627 0 12-5.373 12-12S18.627 0 12 0zm0 21.75a9.72 9.72 0 01-4.978-1.37l-.356-.213-3.694 1.026 1.026-3.694-.213-.356A9.72 9.72 0 012.25 12C2.25 6.615 6.615 2.25 12 2.25S21.75 6.615 21.75 12 17.385 21.75 12 21.75z"/></svg>
+  </button>
+</div>
+
+<script>
+const W1='https://wa.me/918003102135?text=Hi!%20I%20want%20to%20order%20color%20book%20printing.%20Please%20help!';
+const W2='https://wa.me/919352894393?text=Hi!%20I%20want%20to%20order%20color%20book%20printing.%20Please%20help!';
+function wa1(){window.open(W1,'_blank');}
+function wa2(){window.open(W2,'_blank');}
+function gp(id){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.getElementById('pg-'+id).classList.add('active');
+  document.querySelectorAll('.nb').forEach(b=>b.classList.remove('active'));
+  const nb=document.getElementById('nb-'+id);
+  if(nb)nb.classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+function tm(){document.getElementById('mm').classList.toggle('open');}
+
+let selectedStars = 0;
+const starLabels = ['','😞 Poor','😐 Fair','🙂 Good','😊 Very Good','🤩 Excellent!'];
+
+function setStar(n){
+  selectedStars = n;
+  document.querySelectorAll('.star').forEach((s,i) => {
+    s.style.opacity = i < n ? '1' : '0.3';
+    s.style.transform = i < n ? 'scale(1.15)' : 'scale(1)';
+  });
+  document.getElementById('star-label').textContent = starLabels[n];
+  document.getElementById('star-label').style.color = 'var(--o)';
+  document.getElementById('star-label').style.fontWeight = '700';
+}
+
+function toggleTag(el){
+  const active = el.style.background === 'var(--gr)' || el.dataset.active === '1';
+  if(active){
+    el.style.background = '';
+    el.style.color = 'var(--mu)';
+    el.style.borderColor = 'rgba(255,107,53,0.25)';
+    el.dataset.active = '0';
+  } else {
+    el.style.background = 'var(--gr)';
+    el.style.color = 'white';
+    el.style.borderColor = 'transparent';
+    el.dataset.active = '1';
+  }
+}
+
+function sendReview(){
+  if(!selectedStars){ alert('Please select a star rating first!'); return; }
+  const likes = [...document.querySelectorAll('.rtag')].filter(t=>t.dataset.active==='1').map(t=>t.textContent.trim()).join(', ') || 'None selected';
+  const suggest = document.getElementById('r-suggest') ? document.getElementById('r-suggest').value.trim() : '';
+  const starText = selectedStars + '/5 stars';
+  const reviewMsg = encodeURIComponent("Website Feedback\n\nRating: " + starText + "\nLiked: " + likes + "\nSuggestions: " + (suggest || 'None'));
+  window.open('https://wa.me/918003102135?text=' + reviewMsg, '_blank');
+}
+
+function sendFormToWA(){
+  const name = document.getElementById('f-name').value.trim() || 'Not provided';
+  const city = document.getElementById('f-city').value.trim() || 'Not provided';
+  const service = document.getElementById('f-service').value || 'Not selected';
+  const details = (document.getElementById('f-details-fix') ? document.getElementById('f-details-fix').value.trim() : '') || 'Not provided';
+  
+  if(name === 'Not provided'){
+    alert('Please fill in at least your name! 😊');
+    return;
+  }
+  
+  const msg = encodeURIComponent(
+    "Hello! I have an enquiry from your website 👋\n\n" +
+    "👤 Name: " + name + "\n" +
+        "📍 City: " + city + "\n" +
+    "🖨️ Service: " + service + "\n" +
+    "📋 Details: " + details + "\n\n" +
+    "Please help me with my order! 🙏\n\n📎 I am attaching my PDF in this chat. Please check and confirm!"
+  );
+  window.open('https://wa.me/918003102135?text=' + msg, '_blank');
+}
+function calcPrice(){
+  const bw = parseFloat(document.getElementById('bw-pages').value)||0;
+  const bwd = parseFloat(document.getElementById('bwd-pages').value)||0;
+  const col = parseFloat(document.getElementById('col-pages').value)||0;
+  const cold = parseFloat(document.getElementById('cold-pages').value)||0;
+  const bind = parseFloat(document.getElementById('binding').value)||0;
+  const copies = Math.max(1, parseFloat(document.getElementById('copies').value)||1);
+  
+  const total_bw_sides = bw + (bwd * 2);
+  const total_col_sides = col + (cold * 2);
+  
+  // Pricing
+  const bw_rate = 0.5;
+  const col_rate = total_col_sides >= 500 ? 0.9 : 1.0; // slight bulk discount hint
+  
+  const bw_cost = total_bw_sides * bw_rate * copies;
+  const col_cost = total_col_sides * col_rate * copies;
+  const bind_cost = bind * copies;
+  const total = bw_cost + col_cost + bind_cost;
+  
+  if(total === 0 && bw === 0 && bwd === 0 && col === 0 && cold === 0){
+    document.getElementById('calc-result').style.display='none';
+    document.getElementById('calc-placeholder').style.display='block';
+    return;
+  }
+  
+  document.getElementById('calc-result').style.display='block';
+  document.getElementById('calc-placeholder').style.display='none';
+  document.getElementById('bw-cost').textContent = '₹' + bw_cost.toFixed(0);
+  document.getElementById('col-cost').textContent = '₹' + col_cost.toFixed(0);
+  document.getElementById('bind-cost').textContent = '₹' + bind_cost.toFixed(0);
+  document.getElementById('total-cost').textContent = '₹' + total.toFixed(0);
+}
+
+function orderCalc(){
+  const bw = document.getElementById('bw-pages').value||0;
+  const bwd = document.getElementById('bwd-pages').value||0;
+  const col = document.getElementById('col-pages').value||0;
+  const cold = document.getElementById('cold-pages').value||0;
+  const total = document.getElementById('total-cost').textContent;
+  const copies = document.getElementById('copies').value||1;
+  const msg = encodeURIComponent("Hi! I used your price calculator. Here are my requirements:\nB&W Single side: "+bw+" pages\nB&W Double side: "+bwd+" pages\nColour Single side: "+col+" pages\nColour Double side: "+cold+" pages\nCopies: "+copies+"\nEstimated Total: "+total+"\nPlease confirm the final price!");
+  window.open('https://wa.me/918003102135?text='+msg,'_blank');
+}
+
+</script>
+</body>
+</html>
