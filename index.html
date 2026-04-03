@@ -23,12 +23,17 @@
 <meta property="og:type" content="website"/>
 <meta property="og:site_name" content="ColourCopy Hub"/>
 <meta property="og:locale" content="en_IN"/>
+<meta property="og:image" content="https://www.onlinecolourprint.com/og-image.png"/>
+<meta property="og:image:width" content="1200"/>
+<meta property="og:image:height" content="630"/>
+<meta property="og:image:alt" content="ColourCopy Hub — Online Colour Printing & Pan-India Delivery from Jaipur"/>
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image"/>
 <meta name="twitter:title" content="ColourCopy Hub | Online Colour Printing — Pan-India Delivery"/>
 <meta name="twitter:description" content="Print MBBS, CA, CFA, NEET & all books in full colour. Pan-India delivery. Starting ₹0.5/page!"/>
 <meta name="twitter:site" content="@ColourCopyHub"/>
+<meta name="twitter:image" content="https://www.onlinecolourprint.com/og-image.png"/>
 
 <!-- Geo & Local SEO -->
 <meta name="geo.region" content="IN-RJ"/>
@@ -37,7 +42,8 @@
 <meta name="ICBM" content="26.8505, 75.7682"/>
 
 <!-- Canonical -->
-<link rel="canonical" href="https://www.onlinecolourprint.com"/>
+<link rel="canonical" href="https://www.onlinecolourprint.com/"/>
+<link rel="sitemap" type="application/xml" href="/sitemap.xml"/>
 
 <!-- JSON-LD Structured Data -->
 <script type="application/ld+json">
@@ -69,7 +75,8 @@
   "areaServed": "India",
   "sameAs": [
     "https://www.youtube.com/@ColourCopyHub",
-    "https://www.instagram.com/colourcopyhub"
+    "https://www.instagram.com/colourcopyhub",
+    "https://www.onlinecolourprint.com"
   ],
   "hasOfferCatalog": {
     "@type": "OfferCatalog",
@@ -278,6 +285,26 @@ footer{background:var(--dk);color:#fff;padding:48px 5% 22px;}
 </head>
 <body>
 
+<!-- SEO: noscript fallback so search engines see all content -->
+<noscript>
+<div style="padding:20px;font-family:sans-serif;max-width:900px;margin:0 auto;">
+<h1>ColourCopy Hub — Online Colour Printing &amp; Pan-India Delivery</h1>
+<p>Best online colour printing service in India. We print MBBS, BDS, NEET, CA, CFA, engineering, law, MBA, nursing books and notes in full colour with pan-India home delivery from Jaipur, Rajasthan. Starting ₹0.5/page B&amp;W, ₹1/page colour.</p>
+<h2>Our Services</h2>
+<ul>
+<li>Colour Book Printing — MBBS, BDS, NEET, CA, CFA, Engineering, Law, MBA books</li>
+<li>B&amp;W Photocopying — notes, assignments, question papers from ₹0.5/side</li>
+<li>Binding — Spiral (₹20), Hard cover (₹30), Perfect binding</li>
+<li>Pan-India Delivery — all 28 states + international export</li>
+<li>Bulk &amp; Institutional Orders</li>
+</ul>
+<h2>Contact Us</h2>
+<p>📍 Choudhary Colour Xerox Point, Pratap Nagar, Jaipur, Rajasthan — 302033</p>
+<p>📱 WhatsApp: +91 80031 02135 | +91 93528 94393</p>
+<p>⏰ Mon–Sat: 9 AM – 9 PM | Sun: 10 AM – 6 PM</p>
+</div>
+</noscript>
+
 <nav>
 <div class="ni">
   <div class="logo" onclick="gp('home')"><div class="li"><svg viewBox="0 0 52 52" fill="none"><rect x="8" y="14" width="36" height="26" rx="4" fill="white" opacity="0.92"/><rect x="16" y="8" width="20" height="8" rx="2" fill="white" opacity="0.65"/><circle cx="17" cy="27" r="4" fill="#FF6B35"/><circle cx="26" cy="27" r="4" fill="#FF3CAC"/><circle cx="35" cy="27" r="4" fill="#00C2E0"/></svg></div><div class="ln"><span style="color:var(--dk);">Colour</span><span style="color:var(--o);">Copy</span> <span style="color:var(--dk);">Hub</span></div></div>
@@ -306,7 +333,7 @@ footer{background:var(--dk);color:#fff;padding:48px 5% 22px;}
   <div class="hb" style="width:280px;height:280px;background:rgba(255,60,172,.07);bottom:-60px;left:8%;"></div>
   <div class="hc">
     <div class="badge">🏥 Medical Book Printing Specialist · Jaipur</div>
-    <h1>Print Your <em>Medical Books</em> in Full Color</h1>
+    <h1>Colour Printing & <em>Book Delivery</em> Across India</h1>
     <p class="hs">We print <strong>anything</strong> — medical books, college notes, novels, engineering books, law books, question papers, office documents & more — in stunning full colour or crisp B&W. Delivered anywhere in India & abroad. Just WhatsApp your PDF and we handle the rest!</p>
     <div class="hbts">
       <button class="bw" onclick="openQuickOrder()">💬 Order on WhatsApp</button>
@@ -593,7 +620,7 @@ footer{background:var(--dk);color:#fff;padding:48px 5% 22px;}
 </div>
 
 <!-- SERVICES -->
-<div class="page" id="pg-services">
+<div class="page" id="pg-services" data-section="services">
 <div class="pgh"><span class="st">Our Services</span><h2 class="sh">Everything You Need, <em>Printed Perfectly</em></h2><p class="ss" style="margin:0 auto;max-width:500px;">From single-page colour copies to complete MBBS book sets — we do it all and deliver pan-India.</p></div>
 <section style="background:#fff;">
   <div class="sdg">
@@ -780,7 +807,15 @@ function gp(id){
   const nb=document.getElementById('nb-'+id);
   if(nb)nb.classList.add('active');
   window.scrollTo({top:0,behavior:'smooth'});
+  // Update URL hash for SEO and deep-linking
+  const hash = id === 'home' ? '' : '#' + id;
+  history.pushState(null, '', window.location.pathname + hash);
 }
+// Handle direct hash navigation on load
+window.addEventListener('DOMContentLoaded', function(){
+  const hash = window.location.hash.replace('#','');
+  if(hash && ['services','about','contact'].includes(hash)) gp(hash);
+});
 function tm(){document.getElementById('mm').classList.toggle('open');}
 
 function openQuickOrder(){
