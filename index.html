@@ -756,6 +756,19 @@ footer{background:var(--dk);color:#fff;padding:48px 5% 22px;}
 </div>
 
 <script>
+// Google Sheets logging — paste your Google Apps Script URL below
+const SHEET_URL = 'https://script.google.com/macros/s/AKfycbwnybERYOiSvoQejciIfMeD1hryE2v4VvIoXOf-ymoPsEZiQxbP-cPEyXf8ihQ2PqtC-w/exec';
+
+function logToSheet(data){
+  if(!SHEET_URL || SHEET_URL.includes('PASTE_YOUR')) return;
+  fetch(SHEET_URL, {
+    method: 'POST',
+    mode: 'no-cors',
+    headers: {'Content-Type':'application/json'},
+    body: JSON.stringify(data)
+  }).catch(function(){});
+}
+
 const W1='https://wa.me/918003102135?text=Hi!%20I%20want%20to%20order%20color%20book%20printing.%20Please%20help!';
 const W2='https://wa.me/919352894393?text=Hi!%20I%20want%20to%20order%20color%20book%20printing.%20Please%20help!';
 function wa1(){window.open(W1,'_blank');}
@@ -814,6 +827,7 @@ function sendQuickOrder(){
     "Requirements: " + notes + "\n\n" +
     "I am attaching my PDF. Please confirm price and delivery!"
   );
+  logToSheet({form:'Quick Order', name:name, service:service, pages:pages, copies:copies, type:type, city:city, notes:notes});
   window.open('https://wa.me/918003102135?text=' + msg, '_blank');
   closePopup();
 }
@@ -876,6 +890,7 @@ function sendFormToWA(){
     "📋 Details: " + details + "\n\n" +
     "Please help me with my order! 🙏\n\n📎 I am attaching my PDF in this chat. Please check and confirm!"
   );
+  logToSheet({form:'Enquiry', name:name, service:service, city:city, notes:details});
   window.open('https://wa.me/918003102135?text=' + msg, '_blank');
 }
 let currentMode = 'pdf';
@@ -1067,6 +1082,7 @@ function orderCalc(){
     details = "B&W single: " + bw + ", B&W double: " + bwd + ", Colour single: " + col + ", Colour double: " + cold;
   }
   const msg = encodeURIComponent("Hello! I used your price calculator.\n\n" + details + "\n\nEstimated Total: " + total + "\n\nPlease confirm the final price!");
+  logToSheet({form:'Price Calculator', notes:details, type:total});
   window.open('https://wa.me/918003102135?text=' + msg, '_blank');
 }
 
@@ -1099,6 +1115,7 @@ function sendQuickOrder(){
     "Requirements: " + (notes||'None') + "\n\n" +
     "Please help me with my order! I will attach my PDF."
   );
+  logToSheet({form:'Quick Order Popup', name:name, service:service, pages:pages, copies:copies, type:type, city:city, notes:notes});
   closePopup();
   window.open('https://wa.me/918003102135?text='+msg,'_blank');
 }
