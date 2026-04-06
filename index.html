@@ -486,6 +486,62 @@ footer{background:var(--dk);color:#fff;padding:48px 5% 22px;}
           </div>
         </div>
         <div id="calc-placeholder" style="margin-top:14px;text-align:center;color:var(--mu);font-size:13px;">👆 Enter details to see cost</div>
+        <div style="display:flex;align-items:center;justify-content:center;gap:12px;margin-top:12px;">
+          <div style="height:1px;width:40px;background:var(--mu);opacity:0.3;"></div>
+          <span style="color:var(--mu);font-size:12px;font-weight:600;">OR</span>
+          <div style="height:1px;width:40px;background:var(--mu);opacity:0.3;"></div>
+        </div>
+        <div style="text-align:center;margin-top:12px;">
+          <button onclick="document.getElementById('calc-order-popup').style.display='flex'" style="background:var(--gr);color:white;border:none;padding:12px 24px;border-radius:50px;font-size:13px;font-weight:700;cursor:pointer;font-family:Nunito,sans-serif;box-shadow:0 2px 8px rgba(37,211,102,0.3);">💬 Provide Details & Order on WhatsApp</button>
+        </div>
+
+<!-- Calculator Order Popup -->
+<div id="calc-order-popup" style="display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,0.5);align-items:center;justify-content:center;padding:16px;" onclick="if(event.target===this)this.style.display='none'">
+  <div style="background:white;border-radius:22px;padding:28px 24px;max-width:440px;width:100%;max-height:90vh;overflow-y:auto;position:relative;box-shadow:0 8px 40px rgba(0,0,0,0.15);">
+    <button onclick="document.getElementById('calc-order-popup').style.display='none'" style="position:absolute;top:12px;right:16px;background:none;border:none;font-size:22px;cursor:pointer;color:var(--mu);">✕</button>
+    <h3 style="font-size:18px;font-weight:700;color:var(--dk);margin-bottom:20px;">Send Us a Message</h3>
+    <div style="margin-bottom:14px;">
+      <label style="display:block;font-size:13px;font-weight:700;color:var(--dk);margin-bottom:5px;">Your Name</label>
+      <input class="fi" id="co-name" type="text" placeholder="e.g. Rahul Kumar"/>
+    </div>
+    <div style="margin-bottom:14px;">
+      <label style="display:block;font-size:13px;font-weight:700;color:var(--dk);margin-bottom:5px;">City / State</label>
+      <input class="fi" id="co-city" type="text" placeholder="e.g. Mumbai, Maharashtra"/>
+    </div>
+    <div style="margin-bottom:14px;">
+      <label style="display:block;font-size:13px;font-weight:700;color:var(--dk);margin-bottom:5px;">What do you need?</label>
+      <select class="fi" id="co-service" style="appearance:none;cursor:pointer;">
+        <option value="">Select your course / need...</option>
+        <option>Medical books (MBBS / BDS / Nursing)</option>
+        <option>NEET / Competitive exam books</option>
+        <option>CA / CFA / CS notes & books</option>
+        <option>Engineering books & notes</option>
+        <option>Law books & notes</option>
+        <option>MBA / Management notes</option>
+        <option>Pharmacy / Paramedical books</option>
+        <option>College notes & assignments</option>
+        <option>Question papers / Past papers</option>
+        <option>Office documents & reports</option>
+        <option>Novels & general books</option>
+        <option>Bulk / Institutional order</option>
+        <option>Other</option>
+      </select>
+    </div>
+    <div style="margin-bottom:14px;">
+      <label style="display:block;font-size:13px;font-weight:700;color:var(--dk);margin-bottom:5px;">More Details</label>
+      <textarea class="fi" id="co-details" placeholder="e.g. MBBS 1st year, 300 pages, colour print, 2 copies..."></textarea>
+    </div>
+    <div style="background:rgba(255,107,53,0.06);border:1.5px dashed rgba(255,107,53,0.3);border-radius:12px;padding:14px 16px;margin-bottom:16px;display:flex;align-items:flex-start;gap:12px;">
+      <span style="font-size:22px;">📎</span>
+      <div>
+        <div style="font-size:13px;font-weight:700;color:var(--dk);margin-bottom:3px;">Don't forget to attach your PDF!</div>
+        <div style="font-size:12px;color:var(--mu);line-height:1.6;">After clicking below, WhatsApp will open with your details. <strong style="color:var(--o);">Please attach your PDF</strong> before sending! 🙏</div>
+      </div>
+    </div>
+    <button class="bg" style="width:100%;justify-content:center;" onclick="sendCalcOrderToWA()">💬 Send via WhatsApp & Attach PDF</button>
+    <p style="font-size:11px;color:var(--mu);text-align:center;margin-top:10px;">WhatsApp will open with your details pre-filled!</p>
+  </div>
+</div>
       </div>
     </div>
   </div>
@@ -1079,6 +1135,25 @@ function orderCalc(){
   window.open('https://wa.me/918003102135?text=' + msg, '_blank');
 }
 
+
+function sendCalcOrderToWA(){
+  const name = document.getElementById('co-name').value.trim() || 'Not provided';
+  const city = document.getElementById('co-city').value.trim() || 'Not provided';
+  const service = document.getElementById('co-service').value || 'Not selected';
+  const details = document.getElementById('co-details').value.trim() || 'Not provided';
+  if(name === 'Not provided'){ alert('Please fill in at least your name! 😊'); return; }
+  const msg = encodeURIComponent(
+    "Hello! I'd like to place an order.\n\n" +
+    "Name: " + name + "\n" +
+    "City: " + city + "\n" +
+    "Need: " + service + "\n" +
+    "Details: " + details + "\n\n" +
+    "Please help me with pricing and order!\n\nI am attaching my PDF in this chat. Please check and confirm!"
+  );
+  logToSheet({form:'Calculator Order', name:name, service:service, city:city, notes:details});
+  window.open('https://wa.me/918003102135?text=' + msg, '_blank');
+  document.getElementById('calc-order-popup').style.display = 'none';
+}
 
 function openPopup(){
   const popup = document.getElementById('quick-popup');
