@@ -93,6 +93,31 @@
 }
 </script>
 
+<!-- Product Schema: Core BTR 3.0 -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "Core BTR 3.0 — Official Annotated Book",
+  "alternateName": ["Core BTR 3.0", "Core BTR 3", "CoreBTR 3.0"],
+  "description": "Core BTR 3.0 Official Annotated Edition — pre-printed, full-colour annotated book ready for pan-India delivery. Order on WhatsApp from ColourCopy Hub at ₹1099 all-inclusive.",
+  "brand": {"@type": "Brand", "name": "ColourCopy Hub"},
+  "image": "https://www.onlinecolourprint.com/og-image.png",
+  "url": "https://www.onlinecolourprint.com/#core-btr-3",
+  "category": "Books > Medical Books",
+  "offers": {
+    "@type": "Offer",
+    "url": "https://www.onlinecolourprint.com/#core-btr-3",
+    "priceCurrency": "INR",
+    "price": "1099",
+    "availability": "https://schema.org/InStock",
+    "itemCondition": "https://schema.org/NewCondition",
+    "areaServed": "IN",
+    "seller": {"@type": "Organization", "name": "ColourCopy Hub", "url": "https://www.onlinecolourprint.com"}
+  }
+}
+</script>
+
 <!-- FAQ Schema for Google rich results -->
 <script type="application/ld+json">
 {
@@ -118,6 +143,11 @@
       "@type": "Question",
       "name": "How do I place an order?",
       "acceptedAnswer": {"@type": "Answer", "text": "Simply WhatsApp your PDF to +91 80031 02135 or +91 93528 94393. We will print, bind and deliver to your doorstep anywhere in India."}
+    },
+    {
+      "@type": "Question",
+      "name": "Where can I order Core BTR 3.0 (Official Annotated Book)?",
+      "acceptedAnswer": {"@type": "Answer", "text": "Core BTR 3.0 — the Official Annotated Edition — is available at ColourCopy Hub for ₹1099 all-inclusive with pan-India delivery. Order directly on WhatsApp at +91 80031 02135."}
     }
   ]
 }
@@ -564,6 +594,31 @@ footer{background:var(--dk);color:#fff;padding:48px 5% 22px;}
   </div>
 </section>
 
+<!-- FEATURED BOOK: Core BTR 3.0 — Official Annotated -->
+<section id="core-btr-3" aria-label="Core BTR 3.0 Official Annotated Book" style="background:linear-gradient(135deg,#fff5ef 0%,#ffe8d9 100%);padding:60px 5%;scroll-margin-top:90px;">
+  <div style="max-width:1000px;margin:0 auto;background:white;border-radius:24px;padding:36px;box-shadow:0 12px 48px rgba(255,107,53,0.18);border:1.5px solid rgba(255,107,53,0.15);">
+    <div style="display:flex;flex-wrap:wrap;gap:32px;align-items:center;">
+      <div style="font-size:120px;line-height:1;flex-shrink:0;text-align:center;" role="img" aria-label="Core BTR 3.0 book">📕</div>
+      <div style="flex:1;min-width:280px;">
+        <div style="display:inline-block;background:var(--gr);color:white;padding:5px 14px;border-radius:50px;font-size:11px;font-weight:800;letter-spacing:1px;text-transform:uppercase;margin-bottom:12px;">⭐ Featured Book · In Stock</div>
+        <h2 style="font-family:Poppins,sans-serif;font-size:34px;line-height:1.2;margin:0 0 8px;color:#1a1a1a;">Core BTR 3.0 <span style="color:var(--o);">— Official Annotated Book</span></h2>
+        <p style="font-size:15px;color:var(--mu);margin:0 0 18px;line-height:1.6;">Pre-printed and bound copies of <strong>Core BTR 3.0 (Official Annotated Edition)</strong> available now. Ready to ship across India — no PDF needed, just place your order on WhatsApp and we deliver Core BTR 3.0 to your doorstep.</p>
+        <div style="display:flex;align-items:baseline;gap:10px;margin-bottom:18px;">
+          <span style="font-family:Poppins,sans-serif;font-size:42px;font-weight:800;color:var(--o);">₹1099</span>
+          <span style="font-size:13px;color:var(--mu);">all-inclusive</span>
+        </div>
+        <ul style="list-style:none;padding:0;margin:0 0 22px;display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:8px 16px;font-size:14px;color:var(--tx);">
+          <li>✓ Official annotated edition</li>
+          <li>✓ Full colour print</li>
+          <li>✓ Pan-India delivery</li>
+          <li>✓ Premium binding</li>
+        </ul>
+        <a href="https://wa.me/918003102135?text=Hi%2C%20I%20want%20to%20order%20Core%20BTR%203.0%20%28Official%20Annotated%29%20%40%20%E2%82%B91099" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;background:#25D366;color:white;padding:14px 28px;border-radius:50px;font-weight:700;text-decoration:none;font-size:15px;box-shadow:0 4px 14px rgba(37,211,102,0.4);font-family:Nunito,sans-serif;">💬 Order Now on WhatsApp</a>
+      </div>
+    </div>
+  </div>
+</section>
+
 <section style="background:#fff;">
   <div class="tc"><span class="st">Why Choose Us</span><h2 class="sh">Trusted by <em>Medical Students</em> Across India</h2><p class="ss">From Choudhary Colour Xerox Point, Pratap Nagar, Jaipur — printing & delivering across all of India.</p></div>
   <div class="g3">
@@ -831,6 +886,13 @@ function gp(id){
 window.addEventListener('DOMContentLoaded', function(){
   const hash = window.location.hash.replace('#','');
   if(hash && ['services','about','contact'].includes(hash)) gp(hash);
+  // Direct anchors inside the home page (e.g. #core-btr-3)
+  if(hash === 'core-btr-3'){
+    setTimeout(function(){
+      const el = document.getElementById('core-btr-3');
+      if(el) el.scrollIntoView({behavior:'smooth',block:'start'});
+    }, 200);
+  }
 });
 function tm(){document.getElementById('mm').classList.toggle('open');}
 
