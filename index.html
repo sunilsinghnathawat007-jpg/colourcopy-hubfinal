@@ -479,6 +479,7 @@ footer{background:var(--dk);color:#fff;padding:48px 5% 22px;}
 
 <!-- HOME -->
 <div class="page active" id="pg-home">
+<!-- SUBPAGE_INTRO -->
 <section class="hero">
   <div class="hb" style="width:480px;height:480px;background:rgba(255,107,53,.07);top:-140px;right:-80px;"></div>
   <div class="hb" style="width:280px;height:280px;background:rgba(255,60,172,.07);bottom:-60px;left:8%;"></div>
@@ -515,11 +516,11 @@ footer{background:var(--dk);color:#fff;padding:48px 5% 22px;}
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px;">
             <div>
               <label style="display:block;font-size:12px;font-weight:700;color:var(--dk);margin-bottom:4px;">Total pages in PDF</label>
-              <input id="pdf-pages" type="number" min="1" value="" placeholder="e.g. 384" oninput="calcPDF()" style="width:100%;padding:10px 12px;border-radius:10px;border:1.5px solid rgba(255,107,53,0.15);font-size:14px;font-family:Nunito,sans-serif;outline:none;background:white;font-weight:700;"/>
+              <input id="pdf-pages" aria-label="Total pages in PDF" type="number" min="1" value="" placeholder="e.g. 384" oninput="calcPDF()" style="width:100%;padding:10px 12px;border-radius:10px;border:1.5px solid rgba(255,107,53,0.15);font-size:14px;font-family:Nunito,sans-serif;outline:none;background:white;font-weight:700;"/>
             </div>
             <div>
               <label style="display:block;font-size:12px;font-weight:700;color:var(--dk);margin-bottom:4px;">Print type</label>
-              <select id="pdf-type" onchange="calcPDF()" style="width:100%;padding:10px 12px;border-radius:10px;border:1.5px solid rgba(255,107,53,0.15);font-size:13px;font-family:Nunito,sans-serif;outline:none;background:white;cursor:pointer;">
+              <select id="pdf-type" aria-label="Print type" onchange="calcPDF()" style="width:100%;padding:10px 12px;border-radius:10px;border:1.5px solid rgba(255,107,53,0.15);font-size:13px;font-family:Nunito,sans-serif;outline:none;background:white;cursor:pointer;">
                 <option value="all-colour">All Colour</option>
                 <option value="all-bw">All B&W</option>
                 <option value="mixed">Mixed</option>
@@ -528,20 +529,20 @@ footer{background:var(--dk);color:#fff;padding:48px 5% 22px;}
           </div>
           <div id="mixed-row" style="display:none;margin-bottom:12px;">
             <label style="display:block;font-size:12px;font-weight:700;color:var(--dk);margin-bottom:4px;">How many pages are in colour?</label>
-            <input id="pdf-colour-pages" type="number" min="0" value="" placeholder="e.g. 100 colour pages" oninput="calcPDF()" style="width:100%;padding:10px 12px;border-radius:10px;border:1.5px solid rgba(255,107,53,0.15);font-size:13px;font-family:Nunito,sans-serif;outline:none;background:white;"/>
+            <input id="pdf-colour-pages" aria-label="Number of colour pages in mixed mode" type="number" min="0" value="" placeholder="e.g. 100 colour pages" oninput="calcPDF()" style="width:100%;padding:10px 12px;border-radius:10px;border:1.5px solid rgba(255,107,53,0.15);font-size:13px;font-family:Nunito,sans-serif;outline:none;background:white;"/>
             <div id="mixed-hint" style="font-size:11px;color:var(--mu);margin-top:4px;"></div>
           </div>
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px;">
             <div>
               <label style="display:block;font-size:12px;font-weight:700;color:var(--dk);margin-bottom:4px;">Print side</label>
-              <select id="pdf-sides" onchange="calcPDF()" style="width:100%;padding:10px 12px;border-radius:10px;border:1.5px solid rgba(255,107,53,0.15);font-size:13px;font-family:Nunito,sans-serif;outline:none;background:white;cursor:pointer;">
+              <select id="pdf-sides" aria-label="Print side (single or double)" onchange="calcPDF()" style="width:100%;padding:10px 12px;border-radius:10px;border:1.5px solid rgba(255,107,53,0.15);font-size:13px;font-family:Nunito,sans-serif;outline:none;background:white;cursor:pointer;">
                 <option value="single">Single sided</option>
                 <option value="double">Double sided</option>
               </select>
             </div>
             <div>
               <label style="display:block;font-size:12px;font-weight:700;color:var(--dk);margin-bottom:4px;">Copies</label>
-              <input id="pdf-copies" type="number" min="1" value="1" oninput="calcPDF()" style="width:100%;padding:10px 12px;border-radius:10px;border:1.5px solid rgba(255,107,53,0.15);font-size:13px;font-family:Nunito,sans-serif;outline:none;background:white;"/>
+              <input id="pdf-copies" aria-label="Number of copies" type="number" min="1" value="1" oninput="calcPDF()" style="width:100%;padding:10px 12px;border-radius:10px;border:1.5px solid rgba(255,107,53,0.15);font-size:13px;font-family:Nunito,sans-serif;outline:none;background:white;"/>
             </div>
           </div>
           <div id="pdf-summary" style="display:none;background:white;border-radius:10px;padding:10px 14px;border:1px solid rgba(255,107,53,0.15);margin-bottom:12px;font-size:12px;color:var(--mu);">
@@ -549,7 +550,7 @@ footer{background:var(--dk);color:#fff;padding:48px 5% 22px;}
           </div>
           <div>
             <label style="display:block;font-size:12px;font-weight:700;color:var(--dk);margin-bottom:4px;">Binding</label>
-            <select id="pdf-binding" onchange="calcPDF()" style="width:100%;padding:10px 12px;border-radius:10px;border:1.5px solid rgba(255,107,53,0.15);font-size:13px;font-family:Nunito,sans-serif;outline:none;background:white;cursor:pointer;">
+            <select id="pdf-binding" aria-label="Binding option" onchange="calcPDF()" style="width:100%;padding:10px 12px;border-radius:10px;border:1.5px solid rgba(255,107,53,0.15);font-size:13px;font-family:Nunito,sans-serif;outline:none;background:white;cursor:pointer;">
               <option value="0">No binding</option>
               <option value="20">Spiral binding (₹20)</option>
               <option value="30">Hard cover (₹30)</option>
@@ -575,25 +576,25 @@ footer{background:var(--dk);color:#fff;padding:48px 5% 22px;}
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px;">
             <div>
               <label style="display:block;font-size:12px;font-weight:700;color:var(--dk);margin-bottom:4px;">B&W — Single sided</label>
-              <input id="bw-pages" type="number" min="0" value="0" placeholder="0" oninput="calcManual()" style="width:100%;padding:10px 12px;border-radius:10px;border:1.5px solid rgba(255,107,53,0.15);font-size:13px;font-family:Nunito,sans-serif;outline:none;background:white;"/>
+              <input id="bw-pages" aria-label="B&W single-sided pages" type="number" min="0" value="0" placeholder="0" oninput="calcManual()" style="width:100%;padding:10px 12px;border-radius:10px;border:1.5px solid rgba(255,107,53,0.15);font-size:13px;font-family:Nunito,sans-serif;outline:none;background:white;"/>
             </div>
             <div>
               <label style="display:block;font-size:12px;font-weight:700;color:var(--dk);margin-bottom:4px;">B&W — Double sided</label>
-              <input id="bwd-pages" type="number" min="0" value="0" placeholder="0" oninput="calcManual()" style="width:100%;padding:10px 12px;border-radius:10px;border:1.5px solid rgba(255,107,53,0.15);font-size:13px;font-family:Nunito,sans-serif;outline:none;background:white;"/>
+              <input id="bwd-pages" aria-label="B&W double-sided pages" type="number" min="0" value="0" placeholder="0" oninput="calcManual()" style="width:100%;padding:10px 12px;border-radius:10px;border:1.5px solid rgba(255,107,53,0.15);font-size:13px;font-family:Nunito,sans-serif;outline:none;background:white;"/>
             </div>
             <div>
               <label style="display:block;font-size:12px;font-weight:700;color:var(--dk);margin-bottom:4px;">Colour — Single sided</label>
-              <input id="col-pages" type="number" min="0" value="0" placeholder="0" oninput="calcManual()" style="width:100%;padding:10px 12px;border-radius:10px;border:1.5px solid rgba(255,107,53,0.15);font-size:13px;font-family:Nunito,sans-serif;outline:none;background:white;"/>
+              <input id="col-pages" aria-label="Colour single-sided pages" type="number" min="0" value="0" placeholder="0" oninput="calcManual()" style="width:100%;padding:10px 12px;border-radius:10px;border:1.5px solid rgba(255,107,53,0.15);font-size:13px;font-family:Nunito,sans-serif;outline:none;background:white;"/>
             </div>
             <div>
               <label style="display:block;font-size:12px;font-weight:700;color:var(--dk);margin-bottom:4px;">Colour — Double sided</label>
-              <input id="cold-pages" type="number" min="0" value="0" placeholder="0" oninput="calcManual()" style="width:100%;padding:10px 12px;border-radius:10px;border:1.5px solid rgba(255,107,53,0.15);font-size:13px;font-family:Nunito,sans-serif;outline:none;background:white;"/>
+              <input id="cold-pages" aria-label="Colour double-sided pages" type="number" min="0" value="0" placeholder="0" oninput="calcManual()" style="width:100%;padding:10px 12px;border-radius:10px;border:1.5px solid rgba(255,107,53,0.15);font-size:13px;font-family:Nunito,sans-serif;outline:none;background:white;"/>
             </div>
           </div>
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;">
             <div>
               <label style="display:block;font-size:12px;font-weight:700;color:var(--dk);margin-bottom:4px;">Binding</label>
-              <select id="binding" onchange="calcManual()" style="width:100%;padding:10px 12px;border-radius:10px;border:1.5px solid rgba(255,107,53,0.15);font-size:13px;font-family:Nunito,sans-serif;outline:none;background:white;cursor:pointer;">
+              <select id="binding" aria-label="Binding option" onchange="calcManual()" style="width:100%;padding:10px 12px;border-radius:10px;border:1.5px solid rgba(255,107,53,0.15);font-size:13px;font-family:Nunito,sans-serif;outline:none;background:white;cursor:pointer;">
                 <option value="0">No binding</option>
                 <option value="20">Spiral (₹20/book)</option>
                 <option value="30">Hard cover (₹30/book)</option>
@@ -602,7 +603,7 @@ footer{background:var(--dk);color:#fff;padding:48px 5% 22px;}
             </div>
             <div>
               <label style="display:block;font-size:12px;font-weight:700;color:var(--dk);margin-bottom:4px;">Copies</label>
-              <input id="copies" type="number" min="1" value="1" oninput="calcManual()" style="width:100%;padding:10px 12px;border-radius:10px;border:1.5px solid rgba(255,107,53,0.15);font-size:13px;font-family:Nunito,sans-serif;outline:none;background:white;"/>
+              <input id="copies" aria-label="Number of copies" type="number" min="1" value="1" oninput="calcManual()" style="width:100%;padding:10px 12px;border-radius:10px;border:1.5px solid rgba(255,107,53,0.15);font-size:13px;font-family:Nunito,sans-serif;outline:none;background:white;"/>
             </div>
           </div>
         </div>
