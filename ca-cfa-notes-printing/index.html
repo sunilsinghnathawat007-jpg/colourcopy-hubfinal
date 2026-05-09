@@ -253,6 +253,20 @@
 }
 </script>
 
+<!-- Google Analytics 4 (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KDQC204PLJ"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-KDQC204PLJ', { send_page_view: true });
+  // Helper: safe event tracking that no-ops if GA hasn't loaded yet.
+  window.trackEvent = function(name, params){
+    try { gtag('event', name, Object.assign({page_path: location.pathname}, params || {})); }
+    catch(e){ /* swallow — never block UX on analytics */ }
+  };
+</script>
+
 <!-- Performance: preconnect to font CDN to save ~220ms -->
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
@@ -492,7 +506,7 @@ footer{background:var(--dk);color:#fff;padding:48px 5% 22px;}
         <li><strong>MBA / PGDM:</strong> HBR case studies, IIM/ISB course packs, finance & marketing reference texts</li>
       </ul>
       <p style="font-size:15px;line-height:1.65;color:var(--tx);margin:0 0 18px;">WhatsApp the PDF or share the book name — we source, print and ship. Bulk orders for coaching institutes get special pricing.</p>
-    <a href="https://wa.me/918003102135?text=Hi%2C%20I%20want%20to%20print%20CA%20%2F%20CFA%20%2F%20CS%20notes.%20Here%20are%20the%20details%3A" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;background:#25D366;color:white;padding:13px 28px;border-radius:50px;font-weight:700;text-decoration:none;font-size:15px;box-shadow:0 4px 14px rgba(37,211,102,0.35);font-family:Nunito,sans-serif;margin-top:8px;">💬 Order CA / CFA / CS Notes</a>
+    <a href="https://wa.me/918003102135?text=Hi%2C%20I%20want%20to%20print%20CA%20%2F%20CFA%20%2F%20CS%20notes.%20Here%20are%20the%20details%3A" target="_blank" rel="noopener" onclick="trackEvent('subpage_cta_click',{source:'ca-cfa-notes-printing'});trackEvent('whatsapp_click',{source:'ca-cfa-notes-printing'});" style="display:inline-flex;align-items:center;gap:10px;background:#25D366;color:white;padding:13px 28px;border-radius:50px;font-weight:700;text-decoration:none;font-size:15px;box-shadow:0 4px 14px rgba(37,211,102,0.35);font-family:Nunito,sans-serif;margin-top:8px;">💬 Order CA / CFA / CS Notes</a>
   </div>
 </section>
 <section class="hero">
@@ -500,7 +514,7 @@ footer{background:var(--dk);color:#fff;padding:48px 5% 22px;}
   <div class="hb" style="width:280px;height:280px;background:rgba(255,60,172,.07);bottom:-60px;left:8%;"></div>
   <div class="hc">
     <div class="badge">🏥 Medical Book Printing Specialist · Jaipur</div>
-    <a href="#core-btr-3" onclick="document.getElementById('core-btr-3').scrollIntoView({behavior:'smooth'});return false;" style="display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,#fff5ef,#ffe8d9);border:1.5px solid var(--o);color:var(--o);padding:6px 14px;border-radius:50px;font-size:12px;font-weight:700;text-decoration:none;margin-left:8px;font-family:Nunito,sans-serif;">📕 Core BTR 3.0 (Official Annotated) ₹1099 · In Stock →</a>
+    <a href="#core-btr-3" onclick="trackEvent('core_btr_badge_click',{location:'hero'});document.getElementById('core-btr-3').scrollIntoView({behavior:'smooth'});return false;" style="display:inline-flex;align-items:center;gap:8px;background:linear-gradient(135deg,#fff5ef,#ffe8d9);border:1.5px solid var(--o);color:var(--o);padding:6px 14px;border-radius:50px;font-size:12px;font-weight:700;text-decoration:none;margin-left:8px;font-family:Nunito,sans-serif;">📕 Core BTR 3.0 (Official Annotated) ₹1099 · In Stock →</a>
     <h1>Colour Printing & <em>Book Delivery</em> Across India</h1>
     <p class="hs">We print <strong>anything</strong> — medical books, college notes, novels, engineering books, law books, question papers, office documents & more — in stunning full colour or crisp B&W. Delivered anywhere in India & abroad. Just WhatsApp your PDF and we handle the rest!</p>
     <div class="hbts">
@@ -780,7 +794,7 @@ footer{background:var(--dk);color:#fff;padding:48px 5% 22px;}
           <li>✓ Pan-India delivery</li>
           <li>✓ Premium binding</li>
         </ul>
-        <a href="https://wa.me/918003102135?text=Hi%2C%20I%20want%20to%20order%20Core%20BTR%203.0%20%28Official%20Annotated%29%20%40%20%E2%82%B91099" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;background:#25D366;color:white;padding:14px 28px;border-radius:50px;font-weight:700;text-decoration:none;font-size:15px;box-shadow:0 4px 14px rgba(37,211,102,0.4);font-family:Nunito,sans-serif;">💬 Order Now on WhatsApp</a>
+        <a href="https://wa.me/918003102135?text=Hi%2C%20I%20want%20to%20order%20Core%20BTR%203.0%20%28Official%20Annotated%29%20%40%20%E2%82%B91099" target="_blank" rel="noopener" onclick="trackEvent('core_btr_order_click',{location:'product_card'});trackEvent('whatsapp_click',{source:'core_btr_3_card'});" style="display:inline-flex;align-items:center;gap:10px;background:#25D366;color:white;padding:14px 28px;border-radius:50px;font-weight:700;text-decoration:none;font-size:15px;box-shadow:0 4px 14px rgba(37,211,102,0.4);font-family:Nunito,sans-serif;">💬 Order Now on WhatsApp</a>
       </div>
     </div>
   </div>
@@ -847,7 +861,7 @@ footer{background:var(--dk);color:#fff;padding:48px 5% 22px;}
     <span class="st" style="display:inline-block;">Loved Your Order?</span>
     <h2 class="sh" style="margin-top:14px;">Help Us Reach More <em>Students Like You</em> 🙏</h2>
     <p class="ss" style="margin-bottom:24px;">A 30-second Google review means everything to a small shop like ours. Tap below — even just stars helps!</p>
-    <a href="https://g.page/r/CZ9f-GRuuzgVEBM/review" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;background:var(--gr);color:white;border:none;padding:14px 30px;border-radius:50px;font-weight:700;text-decoration:none;font-size:15px;font-family:Nunito,sans-serif;box-shadow:0 4px 14px rgba(255,107,53,0.35);">⭐ Leave a Google Review</a>
+    <a href="https://g.page/r/CZ9f-GRuuzgVEBM/review" target="_blank" rel="noopener" onclick="trackEvent('review_link_click',{location:'reviews_section_cta'});" style="display:inline-flex;align-items:center;gap:10px;background:var(--gr);color:white;border:none;padding:14px 30px;border-radius:50px;font-weight:700;text-decoration:none;font-size:15px;font-family:Nunito,sans-serif;box-shadow:0 4px 14px rgba(255,107,53,0.35);">⭐ Leave a Google Review</a>
   </div>
 </section>
 <section style="background:var(--lt);">
@@ -874,7 +888,7 @@ footer{background:var(--dk);color:#fff;padding:48px 5% 22px;}
 <footer>
   <div class="fg2">
     <div><div class="logo" style="cursor:default;"><div class="li"><svg viewBox="0 0 52 52" fill="none"><rect x="8" y="14" width="36" height="26" rx="4" fill="white" opacity="0.92"/><circle cx="17" cy="27" r="4" fill="#FF6B35"/><circle cx="26" cy="27" r="4" fill="#FF3CAC"/><circle cx="35" cy="27" r="4" fill="#00C2E0"/></svg></div><div class="ln"><span style="color:#fff;">Colour</span><span style="color:var(--o);">Copy</span> <span style="color:rgba(255,255,255,0.7);">Hub</span></div></div><p class="fbp">Choudhary Colour Xerox Point, Pratap Nagar, Jaipur, Rajasthan. Printing & delivering medical books pan-India.</p><div class="socs"><button class="soc" onclick="wa1()" aria-label="Order on WhatsApp" style="background:transparent;border:none;cursor:pointer;">💬</button><button class="soc" onclick="window.open('https://www.instagram.com/colourcopyhub','_blank')" aria-label="Follow on Instagram" style="background:transparent;border:none;cursor:pointer;">📸</button><button class="soc" onclick="window.open('https://www.youtube.com/@ColourCopyHub','_blank')" aria-label="Subscribe on YouTube" style="background:transparent;border:none;cursor:pointer;">▶️</button></div></div>
-    <div><div class="ft">Pages</div><div class="fls"><button class="fl2" onclick="gp('home')">Home</button><button class="fl2" onclick="gp('services')">Services</button><button class="fl2" onclick="gp('about')">About Us</button><button class="fl2" onclick="gp('contact')">Contact</button><a class="fl2" href="https://g.page/r/CZ9f-GRuuzgVEBM/review" target="_blank" rel="noopener" style="cursor:pointer;color:#FFD600;text-decoration:none;">⭐ Leave a Review</a></div></div>
+    <div><div class="ft">Pages</div><div class="fls"><button class="fl2" onclick="gp('home')">Home</button><button class="fl2" onclick="gp('services')">Services</button><button class="fl2" onclick="gp('about')">About Us</button><button class="fl2" onclick="gp('contact')">Contact</button><a class="fl2" href="https://g.page/r/CZ9f-GRuuzgVEBM/review" target="_blank" rel="noopener" onclick="trackEvent('review_link_click',{location:'footer'});" style="cursor:pointer;color:#FFD600;text-decoration:none;">⭐ Leave a Review</a></div></div>
     <div><div class="ft">Contact</div><div class="fls"><span class="fl2" style="cursor:default;">📱 +91 80031 02135</span><span class="fl2" style="cursor:default;">📱 +91 93528 94393</span><span class="fl2" style="cursor:default;">📍 Pratap Nagar, Jaipur</span><span class="fl2" style="cursor:pointer;color:var(--o);" onclick="window.open('https://www.instagram.com/colourcopyhub','_blank')">📸 @colourcopyhub</span><span class="fl2" style="cursor:pointer;color:var(--o);" onclick="window.open('https://www.youtube.com/@ColourCopyHub','_blank')">▶️ @ColourCopyHub</span></div></div>
   </div>
   <div class="fbot"><p>© 2026 ColourCopy Hub · Choudhary Colour Xerox Point, Jaipur</p><p style="color:rgba(255,255,255,.25);">Made with ❤️ for Medical Students across India</p></div>
@@ -1061,8 +1075,8 @@ function logToSheet(data){
 
 const W1='https://wa.me/918003102135?text=Hi!%20I%20want%20to%20order%20color%20book%20printing.%20Please%20help!';
 const W2='https://wa.me/919352894393?text=Hi!%20I%20want%20to%20order%20color%20book%20printing.%20Please%20help!';
-function wa1(){window.open(W1,'_blank');}
-function wa2(){window.open(W2,'_blank');}
+function wa1(){trackEvent('whatsapp_click',{number:'+918003102135',source:'wa1'});window.open(W1,'_blank');}
+function wa2(){trackEvent('whatsapp_click',{number:'+919352894393',source:'wa2'});window.open(W2,'_blank');}
 function gp(id){
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
   document.getElementById('pg-'+id).classList.add('active');
@@ -1100,6 +1114,7 @@ window.addEventListener('DOMContentLoaded', function(){
 function tm(){document.getElementById('mm').classList.toggle('open');}
 
 function openQuickOrder(){
+  trackEvent('quick_order_open');
   // Reset form
   document.getElementById('qp-name').value = '';
   document.getElementById('qp-service').value = '';
@@ -1144,6 +1159,8 @@ function sendQuickOrder(){
     "I am attaching my PDF. Please confirm price and delivery!"
   );
   logToSheet({form:'Quick Order', name:name, service:service, pages:pages, copies:copies, type:type, city:city, notes:notes});
+  trackEvent('quote_form_submit', {form:'quick_order', service:service, city:city, pages:pages});
+  trackEvent('whatsapp_click', {source:'quick_order_form'});
   window.open('https://wa.me/918003102135?text=' + msg, '_blank');
   closePopup();
 }
@@ -1232,8 +1249,16 @@ function setMode(mode){
   }
 }
 
+// Fire calculator_used once per session (debounced)
+let __calcUsedFired = false;
+function __markCalcUsed(mode){
+  if(__calcUsedFired) return;
+  __calcUsedFired = true;
+  trackEvent('calculator_used', {mode:mode});
+}
 function calcPDF(){
   const totalPages = parseFloat(document.getElementById('pdf-pages').value) || 0;
+  if(totalPages > 0) __markCalcUsed('pdf');
   const type = document.getElementById('pdf-type').value;
   const sides = document.getElementById('pdf-sides').value;
   const copies = Math.max(1, parseFloat(document.getElementById('pdf-copies').value) || 1);
@@ -1327,6 +1352,7 @@ function changeVol(delta){
 
 function calcManual(){
   const bw = parseFloat(document.getElementById('bw-pages').value) || 0;
+  if(bw > 0) __markCalcUsed('manual');
   const bwd = parseFloat(document.getElementById('bwd-pages').value) || 0;
   const col = parseFloat(document.getElementById('col-pages').value) || 0;
   const cold = parseFloat(document.getElementById('cold-pages').value) || 0;
@@ -1412,6 +1438,8 @@ function orderCalc(){
   }
   const msg = encodeURIComponent("Hello! I used your price calculator.\n\n" + details + "\n\nEstimated Total: " + total + "\n\nPlease confirm the final price!");
   logToSheet({form:'Price Calculator', notes:details, type:total});
+  trackEvent('calculator_order_click', {mode:currentMode, total:total});
+  trackEvent('whatsapp_click', {source:'calculator'});
   window.open('https://wa.me/918003102135?text=' + msg, '_blank');
 }
 
@@ -1431,11 +1459,14 @@ function sendCalcOrderToWA(){
     "Please help me with pricing and order!\n\nI am attaching my PDF in this chat. Please check and confirm!"
   );
   logToSheet({form:'Calculator Order', name:name, service:service, city:city, notes:details});
+  trackEvent('quote_form_submit', {form:'calculator_order', service:service, city:city});
+  trackEvent('whatsapp_click', {source:'calculator_form'});
   window.open('https://wa.me/918003102135?text=' + msg, '_blank');
   document.getElementById('calc-order-popup').style.display = 'none';
 }
 
 function openPopup(){
+  trackEvent('quote_popup_open');
   const popup = document.getElementById('quick-popup');
   if(popup){ popup.style.display='flex'; document.body.style.overflow='hidden'; }
 }
@@ -1464,6 +1495,8 @@ function sendQuickOrder(){
     "Please help me with my order! I will attach my PDF."
   );
   logToSheet({form:'Quick Order Popup', name:name, service:service, pages:pages, copies:copies, type:type, city:city, notes:notes});
+  trackEvent('quote_form_submit', {form:'quick_order_popup', service:service, city:city, pages:pages});
+  trackEvent('whatsapp_click', {source:'quick_order_popup'});
   closePopup();
   window.open('https://wa.me/918003102135?text='+msg,'_blank');
 }

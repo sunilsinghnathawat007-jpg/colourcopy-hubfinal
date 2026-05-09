@@ -22,19 +22,20 @@ function waLink(msg) {
 }
 
 // Shared CTA button HTML
-function ctaBtn(label, msg) {
-  return `<a href="${waLink(msg)}" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:10px;background:#25D366;color:white;padding:13px 28px;border-radius:50px;font-weight:700;text-decoration:none;font-size:15px;box-shadow:0 4px 14px rgba(37,211,102,0.35);font-family:Nunito,sans-serif;margin-top:8px;">💬 ${label}</a>`;
+function ctaBtn(label, msg, source) {
+  const onClick = `trackEvent('subpage_cta_click',{source:'${source}'});trackEvent('whatsapp_click',{source:'${source}'});`;
+  return `<a href="${waLink(msg)}" target="_blank" rel="noopener" onclick="${onClick}" style="display:inline-flex;align-items:center;gap:10px;background:#25D366;color:white;padding:13px 28px;border-radius:50px;font-weight:700;text-decoration:none;font-size:15px;box-shadow:0 4px 14px rgba(37,211,102,0.35);font-family:Nunito,sans-serif;margin-top:8px;">💬 ${label}</a>`;
 }
 
 // Wrap intro in a consistent section template
-function introSection({ badge, h1, lead, body, ctaLabel, ctaMsg }) {
+function introSection({ badge, h1, lead, body, ctaLabel, ctaMsg, slug }) {
   return `<section style="background:linear-gradient(135deg,#fff8f5 0%,#ffe8d9 100%);padding:90px 5% 50px;">
   <div style="max-width:920px;margin:0 auto;">
     <div style="display:inline-block;background:white;color:var(--o);padding:6px 14px;border-radius:50px;font-size:11px;font-weight:800;letter-spacing:1px;text-transform:uppercase;border:1.5px solid rgba(255,107,53,0.2);margin-bottom:16px;">${badge}</div>
     <h1 style="font-family:Poppins,sans-serif;font-size:38px;line-height:1.2;margin:0 0 16px;color:#1a1a1a;">${h1}</h1>
     <p style="font-size:17px;line-height:1.6;color:var(--mu);margin:0 0 22px;">${lead}</p>
     ${body}
-    ${ctaBtn(ctaLabel, ctaMsg)}
+    ${ctaBtn(ctaLabel, ctaMsg, slug || 'subpage')}
   </div>
 </section>`;
 }
@@ -57,6 +58,7 @@ const PATH_META = {
       <p style="font-size:15px;line-height:1.65;color:var(--tx);margin:0 0 18px;">Just <strong>WhatsApp the PDF</strong>. We print, bind (spiral or hard cover), and ship. Most orders dispatched within 24 hours. Delivery 2–5 days across India.</p>`,
       ctaLabel: 'Order MBBS Books on WhatsApp',
       ctaMsg: 'Hi, I want to print MBBS books. Here are the details:',
+      slug: 'mbbs-book-printing',
     }),
   },
   'neet-notes-printing': {
@@ -76,6 +78,7 @@ const PATH_META = {
       <p style="font-size:15px;line-height:1.65;color:var(--tx);margin:0 0 18px;">B&W from <strong>₹0.5/side</strong> · Colour from <strong>₹1/side</strong> (orders 100+ pages). Spiral binding ₹20/volume, hard cover ₹30/volume. Delivered safely with bubble-wrap packaging.</p>`,
       ctaLabel: 'Order NEET / BDS Notes',
       ctaMsg: 'Hi, I want to print NEET / BDS notes. Here are the details:',
+      slug: 'neet-notes-printing',
     }),
   },
   'ca-cfa-notes-printing': {
@@ -95,6 +98,7 @@ const PATH_META = {
       <p style="font-size:15px;line-height:1.65;color:var(--tx);margin:0 0 18px;">WhatsApp the PDF or share the book name — we source, print and ship. Bulk orders for coaching institutes get special pricing.</p>`,
       ctaLabel: 'Order CA / CFA / CS Notes',
       ctaMsg: 'Hi, I want to print CA / CFA / CS notes. Here are the details:',
+      slug: 'ca-cfa-notes-printing',
     }),
   },
   'photocopy-online-jaipur': {
@@ -116,6 +120,7 @@ const PATH_META = {
       <p style="font-size:15px;line-height:1.65;color:var(--tx);margin:0 0 18px;">Located at Vatsalya 2 Complex, near NRI Circle, below Xtreme Fitness Gym, Sector 19, Pratap Nagar, Jaipur — but you don\'t need to visit. WhatsApp anywhere, anytime.</p>`,
       ctaLabel: 'Order on WhatsApp',
       ctaMsg: 'Hi, I want to print / photocopy. Here are the details:',
+      slug: 'photocopy-online-jaipur',
     }),
   },
   'core-btr-3': {
@@ -137,6 +142,7 @@ const PATH_META = {
       <p style="font-size:15px;line-height:1.65;color:var(--tx);margin:0 0 18px;">Already ordered by 100s of medical students preparing for FMGE, MBBS exams, and clinical practice. Tap below to confirm your order on WhatsApp — we\'ll dispatch within 24 hours.</p>`,
       ctaLabel: 'Order Core BTR 3.0 — ₹1099',
       ctaMsg: 'Hi, I want to order Core BTR 3.0 (Official Annotated) @ ₹1099',
+      slug: 'core-btr-3',
     }),
   },
 };
