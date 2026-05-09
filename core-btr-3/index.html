@@ -9,9 +9,9 @@
 <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png"/>
 <link rel="icon" type="image/svg+xml" href="/favicon.svg"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Choudhary Colour Xerox Point, Pratap Nagar Jaipur | ColourCopy Hub</title>
+<title>Core BTR 3.0 (Official Annotated) at ₹1099 — Order Online | ColourCopy Hub</title>
 <!-- Primary SEO -->
-<meta name="description" content="Choudhary Colour Xerox Point, Pratap Nagar Jaipur — online colour photocopy &amp; MBBS/NEET/CA/CFA book printing. Pan-India delivery. WhatsApp to order."/>
+<meta name="description" content="Core BTR 3.0 Official Annotated Edition pre-printed and bound. ₹1099 all-inclusive with pan-India delivery. Order on WhatsApp from Choudhary Colour Xerox Point."/>
 <meta name="keywords" content="colour print India, color print India, online colour printing, online color printing, colour photocopy India, color photocopy, photocopy online India, notes printing India, colour notes print, medical book printing India, MBBS book printing, MBBS colour print, MBBS notes print, BDS book printing, NEET book printing, NEET notes, CA notes printing, CA book printing, CFA notes printing, CFA book printing, CS notes printing, CS ICSI book print, engineering book printing India, law book printing India, MBA notes printing, nursing book printing, pharmacy book printing, paramedical book printing, college notes printing, assignment printing, question paper printing, study material printing, book printing India, book printing pan India, colour copy India, color copy India, colour xerox India, online book printing India, print and deliver India, printing home delivery India, pan India printing delivery, Jaipur printing shop, Jaipur colour print, Jaipur photocopy, bulk printing India, cheap colour printing India, affordable colour printing, spiral binding India, hard binding India, colour print Jaipur Rajasthan, onlinecolourprint, online colour print India, WhatsApp printing India, colour printing delivery India, print medical books online, NEET preparation books print, CA foundation notes print, CA intermediate print, CA final notes, CFA level 1 notes print, engineering notes colour print, competitive exam books print, novel printing India, office document printing India, B&W print India, black white photocopy India, double sided printing India, single sided print India"/>
 
 <!-- Robots & Author -->
@@ -20,9 +20,9 @@
 <meta name="theme-color" content="#FF6B35"/>
 
 <!-- Open Graph (Facebook, WhatsApp preview) -->
-<meta property="og:title" content="Choudhary Colour Xerox Point, Pratap Nagar Jaipur | ColourCopy Hub"/>
-<meta property="og:description" content="Online colour photocopy &amp; medical book printing — MBBS, NEET, CA, CFA, BDS. Pan-India delivery from Pratap Nagar, Jaipur. WhatsApp +91 80031 02135."/>
-<meta property="og:url" content="https://www.onlinecolourprint.com"/>
+<meta property="og:title" content="Core BTR 3.0 (Official Annotated) at ₹1099 — Order Online | ColourCopy Hub"/>
+<meta property="og:description" content="Core BTR 3.0 Official Annotated Edition pre-printed and bound. ₹1099 all-inclusive with pan-India delivery. Order on WhatsApp from Choudhary Colour Xerox Point."/>
+<meta property="og:url" content="https://www.onlinecolourprint.com/core-btr-3"/>
 <meta property="og:type" content="website"/>
 <meta property="og:site_name" content="ColourCopy Hub"/>
 <meta property="og:locale" content="en_IN"/>
@@ -33,8 +33,8 @@
 
 <!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:title" content="Choudhary Colour Xerox Point, Pratap Nagar Jaipur | ColourCopy Hub"/>
-<meta name="twitter:description" content="Online colour photocopy &amp; medical book printing — MBBS, NEET, CA, CFA. Pan-India delivery from Pratap Nagar, Jaipur."/>
+<meta name="twitter:title" content="Core BTR 3.0 (Official Annotated) at ₹1099 — Order Online | ColourCopy Hub"/>
+<meta name="twitter:description" content="Core BTR 3.0 Official Annotated Edition pre-printed and bound. ₹1099 all-inclusive with pan-India delivery. Order on WhatsApp from Choudhary Colour Xerox Point."/>
 <meta name="twitter:site" content="@ColourCopyHub"/>
 <meta name="twitter:image" content="https://www.onlinecolourprint.com/og-image.png"/>
 
@@ -45,7 +45,7 @@
 <meta name="ICBM" content="26.80635, 75.8356148"/>
 
 <!-- Canonical -->
-<link rel="canonical" href="https://www.onlinecolourprint.com/"/>
+<link rel="canonical" href="https://www.onlinecolourprint.com/core-btr-3"/>
 <link rel="sitemap" type="application/xml" href="/sitemap.xml"/>
 
 <!-- JSON-LD Structured Data -->
@@ -1058,20 +1058,58 @@ function gp(id){
   const hash = id === 'home' ? '' : '#' + id;
   history.pushState(null, '', window.location.pathname + hash);
 }
-// Path & hash routing. Title/meta/canonical are server-rendered per-path
-// by build.js — this only handles in-page navigation and scroll-to-anchor.
-window.addEventListener('DOMContentLoaded', function(){
-  const path = window.location.pathname.replace(/^\//,'').replace(/\/$/,'');
-  // Activate the matching page section for SPA-style nav routes
-  if(['services','about','contact'].includes(path)) gp(path);
-  // Auto-scroll to the Core BTR 3.0 section when landing on /core-btr-3
-  if(path === 'core-btr-3'){
+// Path & hash routing. Supports clean URLs (/mbbs-book-printing) AND legacy hashes (#services).
+const PATH_META = {
+  '/mbbs-book-printing': {
+    title: 'MBBS Book Printing Online — Pan-India Delivery from ₹1/page | ColourCopy Hub',
+    desc: 'Print full-colour MBBS books (Anatomy, Physiology, Biochemistry, Pathology, Pharmacology) online. Pan-India delivery from Pratap Nagar, Jaipur. WhatsApp to order.',
+    scrollTo: null, h1Section: 'core-btr-3'
+  },
+  '/neet-notes-printing': {
+    title: 'NEET Notes & BDS Book Printing Online | Pan-India Delivery — ColourCopy Hub',
+    desc: 'Photocopy and print NEET preparation books, BDS textbooks, AIIMS coaching material. Colour or B&W with pan-India delivery from Jaipur.',
+    scrollTo: null
+  },
+  '/ca-cfa-notes-printing': {
+    title: 'CA, CFA & CS Notes Printing Online — ColourCopy Hub',
+    desc: 'Print CA Foundation/Inter/Final notes, CFA Level 1-3 study material, CS ICSI books and MBA case studies. Pan-India delivery from Pratap Nagar, Jaipur.',
+    scrollTo: null
+  },
+  '/photocopy-online-jaipur': {
+    title: 'Online Photocopy & Xerox Shop — Pratap Nagar Jaipur | ColourCopy Hub',
+    desc: 'Choudhary Colour Xerox Point — online photocopy & colour print delivered. WhatsApp your PDF, we print and ship anywhere in India. Starting ₹0.5/side.',
+    scrollTo: null
+  },
+  '/core-btr-3': {
+    title: 'Core BTR 3.0 (Official Annotated) at ₹1099 — Order Online | ColourCopy Hub',
+    desc: 'Core BTR 3.0 Official Annotated Edition pre-printed and bound. ₹1099 all-inclusive with pan-India delivery. Order on WhatsApp from Choudhary Colour Xerox Point.',
+    scrollTo: 'core-btr-3'
+  }
+};
+function applyPathMeta(){
+  const p = window.location.pathname;
+  const meta = PATH_META[p];
+  if(!meta) return;
+  document.title = meta.title;
+  const m = document.querySelector('meta[name=description]');
+  if(m) m.setAttribute('content', meta.desc);
+  // Update canonical so each subpage canonicalises to itself
+  let c = document.querySelector('link[rel=canonical]');
+  if(c) c.setAttribute('href', 'https://www.onlinecolourprint.com' + p);
+  // Smooth scroll to anchor if requested
+  if(meta.scrollTo){
     setTimeout(function(){
-      const el = document.getElementById('core-btr-3');
+      const el = document.getElementById(meta.scrollTo);
       if(el) el.scrollIntoView({behavior:'smooth', block:'start'});
     }, 200);
   }
-  // Hash fallback (legacy /#services links etc.)
+}
+window.addEventListener('DOMContentLoaded', function(){
+  // Clean URL routing (Vercel rewrites)
+  applyPathMeta();
+  const path = window.location.pathname.replace(/^\//,'').replace(/\/$/,'');
+  if(['services','about','contact'].includes(path)) gp(path);
+  // Hash fallback
   const hash = window.location.hash.replace('#','');
   if(hash && ['services','about','contact'].includes(hash)) gp(hash);
   if(hash === 'core-btr-3'){
