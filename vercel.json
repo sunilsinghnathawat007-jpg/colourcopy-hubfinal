@@ -7,6 +7,16 @@
       "permanent": true
     }
   ],
+  "rewrites": [
+    { "source": "/mbbs-book-printing", "destination": "/index.html" },
+    { "source": "/neet-notes-printing", "destination": "/index.html" },
+    { "source": "/ca-cfa-notes-printing", "destination": "/index.html" },
+    { "source": "/photocopy-online-jaipur", "destination": "/index.html" },
+    { "source": "/core-btr-3", "destination": "/index.html" },
+    { "source": "/services", "destination": "/index.html" },
+    { "source": "/about", "destination": "/index.html" },
+    { "source": "/contact", "destination": "/index.html" }
+  ],
   "headers": [
     {
       "source": "/(.*)",

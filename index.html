@@ -94,8 +94,8 @@
   },
   "aggregateRating": {
     "@type": "AggregateRating",
-    "ratingValue": "4.8",
-    "reviewCount": "30",
+    "ratingValue": "5.0",
+    "reviewCount": "40",
     "bestRating": "5",
     "worstRating": "1"
   },
@@ -181,6 +181,81 @@
   ]
 }
 </script>
+
+<!-- Organization Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "ColourCopy Hub",
+  "alternateName": "Choudhary Colour Xerox Point",
+  "url": "https://www.onlinecolourprint.com",
+  "logo": "https://www.onlinecolourprint.com/android-chrome-512x512.png",
+  "image": "https://www.onlinecolourprint.com/og-image.png",
+  "description": "Online colour printing & photocopy service from Pratap Nagar, Jaipur. Pan-India delivery of MBBS, NEET, CA, CFA, BDS books and notes.",
+  "telephone": ["+918003102135", "+919352894393"],
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Vatsalya 2 Complex, Sector 19, Pratap Nagar",
+    "addressLocality": "Jaipur",
+    "addressRegion": "Rajasthan",
+    "postalCode": "302033",
+    "addressCountry": "IN"
+  },
+  "sameAs": [
+    "https://www.youtube.com/@ColourCopyHub",
+    "https://www.instagram.com/colourcopyhub",
+    "https://g.page/r/CZ9f-GRuuzgVEBM"
+  ]
+}
+</script>
+
+<!-- BreadcrumbList Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {"@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.onlinecolourprint.com/"},
+    {"@type": "ListItem", "position": 2, "name": "Services", "item": "https://www.onlinecolourprint.com/services"},
+    {"@type": "ListItem", "position": 3, "name": "Contact", "item": "https://www.onlinecolourprint.com/contact"}
+  ]
+}
+</script>
+
+<!-- HowTo Schema (Order in 3 Steps) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to order printed books online from ColourCopy Hub",
+  "description": "Order MBBS, NEET, CA, CFA or any book printed in colour and delivered pan-India in 3 simple steps.",
+  "totalTime": "PT5M",
+  "estimatedCost": {"@type": "MonetaryAmount", "currency": "INR", "value": "100"},
+  "step": [
+    {"@type": "HowToStep", "position": 1, "name": "WhatsApp your PDF", "text": "Send your PDF or book name to +91 80031 02135 or +91 93528 94393 on WhatsApp.", "url": "https://wa.me/918003102135"},
+    {"@type": "HowToStep", "position": 2, "name": "We print and pack", "text": "We print your books in vivid colour or B&W, bind them, and pack safely — usually within 24 hours."},
+    {"@type": "HowToStep", "position": 3, "name": "Delivered to your door", "text": "Books are shipped pan-India via trusted couriers. Receive at your doorstep in 2-5 days."}
+  ]
+}
+</script>
+
+<!-- Service Schemas -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {"@type": "Service", "name": "MBBS Book Printing Online", "serviceType": "Book Printing", "provider": {"@type": "LocalBusiness", "name": "ColourCopy Hub"}, "areaServed": "IN", "description": "Print full-colour MBBS textbooks — Anatomy, Physiology, Biochemistry, Pathology, Pharmacology — with pan-India delivery."},
+    {"@type": "Service", "name": "NEET / BDS Notes Printing", "serviceType": "Notes Printing", "provider": {"@type": "LocalBusiness", "name": "ColourCopy Hub"}, "areaServed": "IN", "description": "Photocopy and print NEET preparation books, BDS textbooks and AIIMS coaching material."},
+    {"@type": "Service", "name": "CA, CFA & CS Notes Printing", "serviceType": "Notes Printing", "provider": {"@type": "LocalBusiness", "name": "ColourCopy Hub"}, "areaServed": "IN", "description": "Print CA Foundation/Inter/Final notes, CFA Level 1-3 study material, CS ICSI books and MBA case studies."},
+    {"@type": "Service", "name": "Online Photocopy Delivery", "serviceType": "Photocopy", "provider": {"@type": "LocalBusiness", "name": "ColourCopy Hub"}, "areaServed": "IN", "description": "Online photocopy and xerox service — WhatsApp the PDF, get prints delivered to your doorstep anywhere in India."}
+  ]
+}
+</script>
+
+<!-- Performance: preconnect to font CDN to save ~220ms -->
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800;900&family=Nunito:wght@400;500;600;700&display=swap" rel="stylesheet"/>
 <style>
 :root{--o:#FF6B35;--p:#FF3CAC;--c:#00C2E0;--dk:#1a1a2e;--tx:#2d2d2d;--mu:#6b6b6b;--lt:#fff8f5;--wh:#ffffff;--gr:linear-gradient(135deg,#FF6B35,#FF3CAC);--sh:0 8px 40px rgba(255,107,53,0.15);}
@@ -391,7 +466,7 @@ footer{background:var(--dk);color:#fff;padding:48px 5% 22px;}
     <button class="nb" id="nb-contact" onclick="gp('contact')">Contact</button>
   </div>
   <button class="nw" onclick="openPopup()">💬 Order on WhatsApp</button>
-  <div class="hm" onclick="tm()"><span></span><span></span><span></span></div>
+  <button class="hm" onclick="tm()" aria-label="Open menu" type="button" style="background:transparent;border:none;cursor:pointer;"><span></span><span></span><span></span></button>
 </div>
 </nav>
 <div class="mm" id="mm">
@@ -729,7 +804,7 @@ footer{background:var(--dk);color:#fff;padding:48px 5% 22px;}
 <!-- LIVE GOOGLE REVIEWS TICKER -->
 <section style="background:linear-gradient(135deg,#fff8f5 0%,#ffe8d9 100%);padding:36px 0;overflow:hidden;border-top:1px solid rgba(255,107,53,0.12);border-bottom:1px solid rgba(255,107,53,0.12);">
   <div style="text-align:center;margin-bottom:22px;padding:0 5%;">
-    <div style="display:inline-flex;align-items:center;gap:8px;background:white;padding:6px 16px;border-radius:50px;border:1.5px solid rgba(255,107,53,0.2);font-size:12px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;color:var(--o);">⭐ LIVE GOOGLE REVIEWS · 4.8 / 5 · 30+ verified</div>
+    <div style="display:inline-flex;align-items:center;gap:8px;background:white;padding:6px 16px;border-radius:50px;border:1.5px solid rgba(255,107,53,0.2);font-size:12px;font-weight:700;letter-spacing:0.5px;text-transform:uppercase;color:var(--o);">⭐ LIVE GOOGLE REVIEWS · 5.0 / 5 · 40+ verified</div>
   </div>
   <div class="rt-wrap" style="overflow:hidden;width:100%;position:relative;">
     <div class="rt-track" style="display:inline-flex;gap:18px;padding-left:12px;animation:rtScroll 70s linear infinite;white-space:normal;">
@@ -782,7 +857,7 @@ footer{background:var(--dk);color:#fff;padding:48px 5% 22px;}
 </div>
 <footer>
   <div class="fg2">
-    <div><div class="logo" style="cursor:default;"><div class="li"><svg viewBox="0 0 52 52" fill="none"><rect x="8" y="14" width="36" height="26" rx="4" fill="white" opacity="0.92"/><circle cx="17" cy="27" r="4" fill="#FF6B35"/><circle cx="26" cy="27" r="4" fill="#FF3CAC"/><circle cx="35" cy="27" r="4" fill="#00C2E0"/></svg></div><div class="ln"><span style="color:#fff;">Colour</span><span style="color:var(--o);">Copy</span> <span style="color:rgba(255,255,255,0.7);">Hub</span></div></div><p class="fbp">Choudhary Colour Xerox Point, Pratap Nagar, Jaipur, Rajasthan. Printing & delivering medical books pan-India.</p><div class="socs"><div class="soc" onclick="wa1()">💬</div><div class="soc" onclick="window.open('https://www.instagram.com/colourcopyhub','_blank')">📸</div><div class="soc" onclick="window.open('https://www.youtube.com/@ColourCopyHub','_blank')">▶️</div></div></div>
+    <div><div class="logo" style="cursor:default;"><div class="li"><svg viewBox="0 0 52 52" fill="none"><rect x="8" y="14" width="36" height="26" rx="4" fill="white" opacity="0.92"/><circle cx="17" cy="27" r="4" fill="#FF6B35"/><circle cx="26" cy="27" r="4" fill="#FF3CAC"/><circle cx="35" cy="27" r="4" fill="#00C2E0"/></svg></div><div class="ln"><span style="color:#fff;">Colour</span><span style="color:var(--o);">Copy</span> <span style="color:rgba(255,255,255,0.7);">Hub</span></div></div><p class="fbp">Choudhary Colour Xerox Point, Pratap Nagar, Jaipur, Rajasthan. Printing & delivering medical books pan-India.</p><div class="socs"><button class="soc" onclick="wa1()" aria-label="Order on WhatsApp" style="background:transparent;border:none;cursor:pointer;">💬</button><button class="soc" onclick="window.open('https://www.instagram.com/colourcopyhub','_blank')" aria-label="Follow on Instagram" style="background:transparent;border:none;cursor:pointer;">📸</button><button class="soc" onclick="window.open('https://www.youtube.com/@ColourCopyHub','_blank')" aria-label="Subscribe on YouTube" style="background:transparent;border:none;cursor:pointer;">▶️</button></div></div>
     <div><div class="ft">Pages</div><div class="fls"><button class="fl2" onclick="gp('home')">Home</button><button class="fl2" onclick="gp('services')">Services</button><button class="fl2" onclick="gp('about')">About Us</button><button class="fl2" onclick="gp('contact')">Contact</button><a class="fl2" href="https://g.page/r/CZ9f-GRuuzgVEBM/review" target="_blank" rel="noopener" style="cursor:pointer;color:#FFD600;text-decoration:none;">⭐ Leave a Review</a></div></div>
     <div><div class="ft">Contact</div><div class="fls"><span class="fl2" style="cursor:default;">📱 +91 80031 02135</span><span class="fl2" style="cursor:default;">📱 +91 93528 94393</span><span class="fl2" style="cursor:default;">📍 Pratap Nagar, Jaipur</span><span class="fl2" style="cursor:pointer;color:var(--o);" onclick="window.open('https://www.instagram.com/colourcopyhub','_blank')">📸 @colourcopyhub</span><span class="fl2" style="cursor:pointer;color:var(--o);" onclick="window.open('https://www.youtube.com/@ColourCopyHub','_blank')">▶️ @ColourCopyHub</span></div></div>
   </div>
@@ -983,11 +1058,60 @@ function gp(id){
   const hash = id === 'home' ? '' : '#' + id;
   history.pushState(null, '', window.location.pathname + hash);
 }
-// Handle direct hash navigation on load
+// Path & hash routing. Supports clean URLs (/mbbs-book-printing) AND legacy hashes (#services).
+const PATH_META = {
+  '/mbbs-book-printing': {
+    title: 'MBBS Book Printing Online — Pan-India Delivery from ₹1/page | ColourCopy Hub',
+    desc: 'Print full-colour MBBS books (Anatomy, Physiology, Biochemistry, Pathology, Pharmacology) online. Pan-India delivery from Pratap Nagar, Jaipur. WhatsApp to order.',
+    scrollTo: null, h1Section: 'core-btr-3'
+  },
+  '/neet-notes-printing': {
+    title: 'NEET Notes & BDS Book Printing Online | Pan-India Delivery — ColourCopy Hub',
+    desc: 'Photocopy and print NEET preparation books, BDS textbooks, AIIMS coaching material. Colour or B&W with pan-India delivery from Jaipur.',
+    scrollTo: null
+  },
+  '/ca-cfa-notes-printing': {
+    title: 'CA, CFA & CS Notes Printing Online — ColourCopy Hub',
+    desc: 'Print CA Foundation/Inter/Final notes, CFA Level 1-3 study material, CS ICSI books and MBA case studies. Pan-India delivery from Pratap Nagar, Jaipur.',
+    scrollTo: null
+  },
+  '/photocopy-online-jaipur': {
+    title: 'Online Photocopy & Xerox Shop — Pratap Nagar Jaipur | ColourCopy Hub',
+    desc: 'Choudhary Colour Xerox Point — online photocopy & colour print delivered. WhatsApp your PDF, we print and ship anywhere in India. Starting ₹0.5/side.',
+    scrollTo: null
+  },
+  '/core-btr-3': {
+    title: 'Core BTR 3.0 (Official Annotated) at ₹1099 — Order Online | ColourCopy Hub',
+    desc: 'Core BTR 3.0 Official Annotated Edition pre-printed and bound. ₹1099 all-inclusive with pan-India delivery. Order on WhatsApp from Choudhary Colour Xerox Point.',
+    scrollTo: 'core-btr-3'
+  }
+};
+function applyPathMeta(){
+  const p = window.location.pathname;
+  const meta = PATH_META[p];
+  if(!meta) return;
+  document.title = meta.title;
+  const m = document.querySelector('meta[name=description]');
+  if(m) m.setAttribute('content', meta.desc);
+  // Update canonical so each subpage canonicalises to itself
+  let c = document.querySelector('link[rel=canonical]');
+  if(c) c.setAttribute('href', 'https://www.onlinecolourprint.com' + p);
+  // Smooth scroll to anchor if requested
+  if(meta.scrollTo){
+    setTimeout(function(){
+      const el = document.getElementById(meta.scrollTo);
+      if(el) el.scrollIntoView({behavior:'smooth', block:'start'});
+    }, 200);
+  }
+}
 window.addEventListener('DOMContentLoaded', function(){
+  // Clean URL routing (Vercel rewrites)
+  applyPathMeta();
+  const path = window.location.pathname.replace(/^\//,'').replace(/\/$/,'');
+  if(['services','about','contact'].includes(path)) gp(path);
+  // Hash fallback
   const hash = window.location.hash.replace('#','');
   if(hash && ['services','about','contact'].includes(hash)) gp(hash);
-  // Direct anchors inside the home page (e.g. #core-btr-3)
   if(hash === 'core-btr-3'){
     setTimeout(function(){
       const el = document.getElementById('core-btr-3');
